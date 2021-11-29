@@ -11,6 +11,7 @@ export default function Roster() {
           {Array.from({ length: 20 }).map((_, index) => (
             <th key={index}>{index + 1}</th>
           ))}
+          <th>Average</th>
           <th>Total</th>
         </tr>
       </thead>
@@ -21,6 +22,7 @@ export default function Roster() {
           {Array.from({ length: 20 }).map((_, index) => (
             <td key={index}>0</td>
           ))}
+          <th>avg</th>
           <th>sum</th>
         </tr>
         <tr>
@@ -29,6 +31,7 @@ export default function Roster() {
           {Array.from({ length: 20 }).map((_, index) => (
             <td key={index}>0</td>
           ))}
+          <th>avg</th>
           <th>sum</th>
         </tr>
         <tr>
@@ -37,6 +40,7 @@ export default function Roster() {
           {Array.from({ length: 20 }).map((_, index) => (
             <td key={index}>0</td>
           ))}
+          <th>avg</th>
           <th>sum</th>
         </tr>
         <tr>
@@ -45,6 +49,7 @@ export default function Roster() {
           {Array.from({ length: 20 }).map((_, index) => (
             <td key={index}>0</td>
           ))}
+          <th>avg</th>
           <th>sum</th>
         </tr>
         <tr>
@@ -53,6 +58,7 @@ export default function Roster() {
           {Array.from({ length: 20 }).map((_, index) => (
             <td key={index}>0</td>
           ))}
+          <th>avg</th>
           <th>sum</th>
         </tr>
         <tr>
@@ -61,6 +67,7 @@ export default function Roster() {
           {Array.from({ length: 20 }).map((_, index) => (
             <td key={index}>0</td>
           ))}
+          <th>avg</th>
           <th>sum</th>
         </tr>
         <tr>
@@ -69,6 +76,7 @@ export default function Roster() {
           {Array.from({ length: 20 }).map((_, index) => (
             <td key={index}>0</td>
           ))}
+          <th>avg</th>
           <th>sum</th>
         </tr>
         <tr>
@@ -77,6 +85,7 @@ export default function Roster() {
           {Array.from({ length: 20 }).map((_, index) => (
             <td key={index}>0</td>
           ))}
+          <th>avg</th>
           <th>sum</th>
         </tr>
         <tr>
@@ -85,6 +94,7 @@ export default function Roster() {
           {Array.from({ length: 20 }).map((_, index) => (
             <td key={index}>0</td>
           ))}
+          <th>avg</th>
           <th>sum</th>
         </tr>
       </tbody>
