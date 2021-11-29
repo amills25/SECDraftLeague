@@ -38,6 +38,9 @@ export default function MyNavbar(props) {
           <Nav.Link activeClassName={"active"} as={NavLink} to="/standings">
             Standings
           </Nav.Link>
+          <Nav.Link activeClassName={"active"} as={NavLink} to="/schedule">
+            Schedule
+          </Nav.Link>
           <Nav.Link activeClassName={"active"} as={NavLink} to="/history">
             Hall of Fame
           </Nav.Link>
