@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Image, ListGroup } from "react-bootstrap";
+import { Container, Row, Col, Image, ListGroup, Navbar } from "react-bootstrap";
 
 export default function Home() {
   return (
@@ -71,8 +71,21 @@ export default function Home() {
           <Col className="col-2"></Col>
         </Row>
       </Container>
-      <br></br>
-      <br></br>
+      <Navbar fixed="bottom">
+        <Container className="text-center">
+          <Row className="row-1">
+            <Col>
+              <Image
+                src="./img/AMBlackXLTransBG.jpg"
+                alt="Andrew Mills Logo"
+                width="30"
+                height="24"
+              />
+              Developed by Andrew Mills, 2021.
+            </Col>
+          </Row>
+        </Container>
+      </Navbar>
     </>
   );
 }

@@ -1,8 +1,30 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 
 export default function MyNavbar(props) {
+  const logOut = () => {
+    axios({
+      method: "get",
+      url:
+        "https://port-3000-aincbootcampapi-ianrios529550.codeanyapp.com/api/auth/logout",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        Authorization: "Bearer " + props.token,
+      },
+    })
+      .then(function (response) {
+        props.removeToken();
+        // history.push("/");
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
   return (
     <Navbar sticky="top" className="myNav">
       <Container className="myBorder border border-5 rounded-3 bg-white container-fluid">
@@ -25,14 +47,22 @@ export default function MyNavbar(props) {
         </Nav>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-          <Navbar.Text>
-            Welcome, <a href="#login">Andrew Mills</a>
-          </Navbar.Text>
-          <span style={{ paddingLeft: 8 }}></span>
           <Nav>
-            <Nav.Link activeClassName={"active"} as={NavLink} to="/login">
-              Logout
+            <Nav.Link
+              activeClassName={"active"}
+              as={NavLink}
+              to="/newuser"
+              className="ml-auto"
+            >
+              New User
             </Nav.Link>
+            {/* {props.token.length > 0 ? (
+              <Nav.Link onClick={logOut}>Logout</Nav.Link>
+            ) : (
+              <Nav.Link activeClassName={"active"} as={NavLink} to="/login">
+                Login
+              </Nav.Link>
+            )} */}
           </Nav>
         </Navbar.Collapse>
       </Container>

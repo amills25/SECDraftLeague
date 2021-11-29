@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Routes, Switch, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import MyNavbar from "./Components/MyNavbar";
 import Footer from "../src/Components/Footer";
 import Home from "../src/Pages/Home";
@@ -23,7 +23,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/*" element={<Home />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
