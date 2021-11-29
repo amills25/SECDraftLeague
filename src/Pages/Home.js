@@ -10,13 +10,27 @@ export default function Home() {
         <Row>
           <Col className="myBorder col-3 border border-5 rounded-3 bg-white">
             <ListGroup as="ol" numbered variant="flush">
-              Current Standings:
-              <ListGroup.Item as="li">Cras justo odio</ListGroup.Item>
-              <ListGroup.Item as="li">Cras justo odio</ListGroup.Item>
-              <ListGroup.Item as="li">Cras justo odio</ListGroup.Item>
-              <ListGroup.Item as="li">Cras justo odio</ListGroup.Item>
-              <ListGroup.Item as="li">Cras justo odio</ListGroup.Item>
-              <ListGroup.Item as="li">Cras justo odio</ListGroup.Item>
+              <div className="fw-bold text-center">
+                <u>Current Standings:</u>
+              </div>
+              <ListGroup.Item as="li">
+                lineup.name -- lineup.total
+              </ListGroup.Item>
+              <ListGroup.Item as="li">
+                lineup.name -- lineup.total
+              </ListGroup.Item>
+              <ListGroup.Item as="li">
+                lineup.name -- lineup.total
+              </ListGroup.Item>
+              <ListGroup.Item as="li">
+                lineup.name -- lineup.total
+              </ListGroup.Item>
+              <ListGroup.Item as="li">
+                lineup.name -- lineup.total
+              </ListGroup.Item>
+              <ListGroup.Item as="li">
+                lineup.name -- lineup.total
+              </ListGroup.Item>
             </ListGroup>
           </Col>
           <Col className="col-6 text-center">
@@ -24,7 +38,9 @@ export default function Home() {
           </Col>
           <Col className="myBorder col-3 border border-5 rounded-3 bg-white">
             <ListGroup numbered variant="flush">
-              Recent Champions:
+              <div className="fw-bold text-center">
+                <u>Recent Champions:</u>
+              </div>
               <ListGroup.Item>2021: Andrew Mills</ListGroup.Item>
               <ListGroup.Item>2020: Andrew Mills</ListGroup.Item>
               <ListGroup.Item>2019: Joel Storrow</ListGroup.Item>
