@@ -82,8 +82,9 @@ export default function Rules() {
             considered final. You will be notified of any material changes to
             the above.
           </p>
-          <h4>GOOD LUCK,</h4>
-          <h4>THE COMMISIONER</h4>
+          <br></br>
+          <h6>GOOD LUCK,</h6>
+          <h6>THE COMMISIONER</h6>
         </Col>
       </Row>
     </Container>

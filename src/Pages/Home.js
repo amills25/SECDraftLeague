@@ -8,7 +8,7 @@ export default function Home() {
       <br></br>
       <Container>
         <Row>
-          <Col className="col-3 border border-5 rounded-3 bg-white">
+          <Col className="myBorder col-3 border border-5 rounded-3 bg-white">
             <ListGroup as="ol" numbered variant="flush">
               Current Standings:
               <ListGroup.Item as="li">Cras justo odio</ListGroup.Item>
@@ -26,7 +26,7 @@ export default function Home() {
               fluid
             />
           </Col>
-          <Col className="col-3 border border-5 rounded-3 bg-white">
+          <Col className="myBorder col-3 border border-5 rounded-3 bg-white">
             <ListGroup numbered variant="flush">
               Recent Champions:
               <ListGroup.Item>2021: Andrew Mills</ListGroup.Item>

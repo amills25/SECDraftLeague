@@ -1,0 +1,290 @@
+import React from "react";
+import { Table, Container, Row, Col } from "react-bootstrap";
+
+export default function History() {
+  return (
+    <>
+      <Container>
+        <Row>
+          <Col>
+            <Table striped bordered hover responsive>
+              <thead>
+                <tr>
+                  <th>Year</th>
+                  <th>Champion</th>
+                  <th>Points Scored</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2020-2021</td>
+                  <td>A. Mills</td>
+                  <td>?</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>2019-2020</td>
+                  <td>A. Mills</td>
+                  <td>?</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>2018-2019</td>
+                  <td>J. Storrow</td>
+                  <td>1763</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>2017-2018</td>
+                  <td>M. Mills</td>
+                  <td>1859</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>2016-2017</td>
+                  <td>Zimmer</td>
+                  <td>1751</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>2015-2016</td>
+                  <td>M. Mills</td>
+                  <td>2043</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>2014-2015</td>
+                  <td>A. Mills</td>
+                  <td>1721</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>2013-2014</td>
+                  <td>M. Mills</td>
+                  <td>1895</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>2012-2013</td>
+                  <td>M. Mills</td>
+                  <td>2060</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>2011-2012</td>
+                  <td>J. Storrow</td>
+                  <td>1315</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>2010-2011</td>
+                  <td>M. Mills</td>
+                  <td>1526</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>2009-2010</td>
+                  <td>A. Storrow</td>
+                  <td>1762</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>2008-2009</td>
+                  <td>A. Mills</td>
+                  <td>1455</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>2007-2008</td>
+                  <td>M. Mills</td>
+                  <td>1762</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>2006-2007</td>
+                  <td>J. Storrow</td>
+                  <td>1476</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>2005-2006</td>
+                  <td>Hofsass</td>
+                  <td>1501</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>2004-2005</td>
+                  <td>Spencer</td>
+                  <td>1334</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>2003-2004</td>
+                  <td>Spencer</td>
+                  <td>1469</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>2002-2003</td>
+                  <td>M. Mills</td>
+                  <td>1336</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>2001-2002</td>
+                  <td>J. Storrow</td>
+                  <td>1501</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>2000-2001</td>
+                  <td>Umphrey</td>
+                  <td>1373</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>1999-2000</td>
+                  <td>Spencer</td>
+                  <td>1324</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>1998-1999</td>
+                  <td>M. Mills</td>
+                  <td>1326</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>1997-1998</td>
+                  <td>Spencer</td>
+                  <td>1459</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>1996-1997</td>
+                  <td>Spencer</td>
+                  <td>1546</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>1995-1996</td>
+                  <td>Schickli</td>
+                  <td>1448</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>1994-1995</td>
+                  <td>Hofsass</td>
+                  <td>1531</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>1993-1994</td>
+                  <td>M. Mills</td>
+                  <td>1793</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>1992-1993</td>
+                  <td>B. Blue</td>
+                  <td>1660</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>1991-1992</td>
+                  <td>M. Mills</td>
+                  <td>1832</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>1990-1991</td>
+                  <td>Gilliam</td>
+                  <td>1850</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>1989-1990</td>
+                  <td>M. Blue</td>
+                  <td>1891</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>1988-1989</td>
+                  <td>Schickli</td>
+                  <td>2405</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>1987-1988</td>
+                  <td>M. Mills</td>
+                  <td>1911</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>1986-1987</td>
+                  <td>M. Mills</td>
+                  <td>1735</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>1985-1986</td>
+                  <td>M. Mills</td>
+                  <td>1593</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>1984-1985</td>
+                  <td>M. Mills</td>
+                  <td>1615</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
+                  <td>1983-1984</td>
+                  <td>B. Blue</td>
+                  <td>1417</td>
+                </tr>
+              </tbody>
+            </Table>
+          </Col>
+        </Row>
+      </Container>
+    </>
+  );
+}
