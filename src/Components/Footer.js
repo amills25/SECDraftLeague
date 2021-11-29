@@ -7,7 +7,7 @@ export default function Footer() {
       <Row className="row-1">
         <Col className="text-center">
           <Image
-            src="./img/AMBlackSmallTrans.jpg"
+            src="./img/AMBlackXLTransBG.jpg"
             alt="Andrew Mills Logo"
             width="30"
             height="24"
