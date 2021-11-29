@@ -7,6 +7,7 @@ import Lineup from "../src/Pages/Lineup";
 import Standings from "./Pages/Standings";
 import History from "../src/Pages/History";
 import Rules from "../src/Pages/Rules";
+import NewUser from "../src/Pages/NewUser";
 import Login from "../src/Pages/Login";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/standings" element={<Standings />} />
         <Route path="/history" element={<History />} />
         <Route path="/rules" element={<Rules />} />
+        <Route path="/newuser" element={<NewUser />} />
         <Route path="/login" element={<Login />} />
         <Route path="/*" element={<Home />} />
       </Routes>
