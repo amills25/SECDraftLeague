@@ -1,12 +1,14 @@
 import React from "react";
-import { Table, Container, Row, Col } from "react-bootstrap";
+import { Table, Container, Row, Col, ListGroup, Image } from "react-bootstrap";
 
 export default function History() {
   return (
     <>
       <Container>
         <Row>
-          <Col>
+          <h1 className="text-center">Hall of Fame</h1>
+          <hr></hr>
+          <Col className="col-8">
             <Table striped bordered hover responsive>
               <thead>
                 <tr>
@@ -282,6 +284,82 @@ export default function History() {
                 </tr>
               </tbody>
             </Table>
+          </Col>
+          <Col className="myBorder col-4 border border-5 rounded-3 bg-white">
+            <ListGroup variant="flush">
+              Title Count:
+              <ListGroup.Item>
+                M. Mills{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+              </ListGroup.Item>
+              <ListGroup.Item>
+                Spencer <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+              </ListGroup.Item>
+              <ListGroup.Item>
+                A. Mills{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+              </ListGroup.Item>
+              <ListGroup.Item>
+                J. Storrow{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+              </ListGroup.Item>
+              <ListGroup.Item>
+                Schickli{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+              </ListGroup.Item>
+              <ListGroup.Item>
+                B. Blue <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+              </ListGroup.Item>
+              <ListGroup.Item>
+                Hofsass <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+              </ListGroup.Item>
+              <ListGroup.Item>
+                Zimmer <Image className="logo" src="../img/trophy.png" fluid />{" "}
+              </ListGroup.Item>
+              <ListGroup.Item>
+                A. Storrow{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+              </ListGroup.Item>
+              <ListGroup.Item>
+                Umphrey <Image className="logo" src="../img/trophy.png" fluid />{" "}
+              </ListGroup.Item>
+              <ListGroup.Item>
+                Gilliam <Image className="logo" src="../img/trophy.png" fluid />{" "}
+              </ListGroup.Item>
+              <ListGroup.Item>
+                M. Blue <Image className="logo" src="../img/trophy.png" fluid />{" "}
+              </ListGroup.Item>
+              <ListGroup.Item>Prezkop</ListGroup.Item>
+              <ListGroup.Item>R. Storrow</ListGroup.Item>
+              <ListGroup.Item>Collins</ListGroup.Item>
+              <ListGroup.Item>Lambert</ListGroup.Item>
+            </ListGroup>
           </Col>
         </Row>
       </Container>

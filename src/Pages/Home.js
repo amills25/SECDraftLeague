@@ -20,11 +20,7 @@ export default function Home() {
             </ListGroup>
           </Col>
           <Col className="col-6 text-center">
-            <Image
-              className="logo img-fluid"
-              src="../img/SECDraftLeagueLogo.png"
-              fluid
-            />
+            <Image className="logo" src="../img/SECDraftLeagueLogo.png" fluid />
           </Col>
           <Col className="myBorder col-3 border border-5 rounded-3 bg-white">
             <ListGroup numbered variant="flush">
