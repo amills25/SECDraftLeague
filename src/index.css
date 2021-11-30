@@ -1,7 +1,7 @@
-.myBorder {
-  border-color: #2566e0;
-}
-
 .logo {
   max-height: 300px;
+}
+
+.myBorder {
+    border: 1px solid #315db1 !important;
 }

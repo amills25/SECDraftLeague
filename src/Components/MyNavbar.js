@@ -27,7 +27,7 @@ export default function MyNavbar(props) {
   };
   return (
     <Navbar sticky="top" className="myNav">
-      <Container className="myBorder border border-5 rounded-3 bg-white container-fluid">
+      <Container className="myBorder border-5 rounded-3 bg-white container-fluid">
         <Nav className="me-auto">
           <Nav.Link activeClassName={"active"} as={NavLink} to="/home">
             Home

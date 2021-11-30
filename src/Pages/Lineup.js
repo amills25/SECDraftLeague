@@ -15,6 +15,8 @@ export default function Lineup() {
     <>
       <Container>
         <Row>
+          <h1 className="text-center">LINEUP</h1>
+          <hr></hr>
           <Col>
             <Dropdown>
               <Dropdown.Toggle variant="light" id="dropdown-basic">

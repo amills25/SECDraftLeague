@@ -8,7 +8,7 @@ export default function Home() {
       <br></br>
       <Container>
         <Row>
-          <Col className="myBorder col-3 border border-5 rounded-3 bg-white">
+          <Col className="myBorder col-3 border-5 rounded-3 bg-white">
             <ListGroup as="ol" numbered variant="flush">
               <div className="fw-bold text-center">
                 <u>Current Standings:</u>
@@ -36,7 +36,7 @@ export default function Home() {
           <Col className="col-6 text-center">
             <Image className="logo" src="../img/SECDraftLeagueLogo.png" fluid />
           </Col>
-          <Col className="myBorder col-3 border border-5 rounded-3 bg-white">
+          <Col className="myBorder col-3 border-5 rounded-3 bg-white">
             <ListGroup numbered variant="flush">
               <div className="fw-bold text-center">
                 <u>Recent Champions:</u>

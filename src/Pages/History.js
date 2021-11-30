@@ -14,7 +14,7 @@ export default function History() {
     <>
       <Container>
         <Row>
-          <h1 className="text-center">Hall of Fame</h1>
+          <h1 className="text-center">HALL OF FAME</h1>
           <hr></hr>
           <Col className="col-8">
             <Table striped bordered hover responsive>
