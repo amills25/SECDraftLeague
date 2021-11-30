@@ -57,21 +57,40 @@ export default function Home() {
         <Row>
           <Col className="col-2"></Col>
           <Col className="col-8 text-center">
-            <h4>[Current Week]</h4>
+            <h4>[week.id]</h4>
             <p>
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum."
+              Back for its 39th year, The Original SEC Draft League! Where
+              history trumps glitz and glamour and gimmicks!!
+            </p>
+            <p>
+              The draft is complete. Let the games begin. Let's see who can
+              score once the real games begin. Good luck!!!!
+            </p>
+            <p>
+              Thirty-Nine years!! Wow, this league is getting some age on it.
+              The Glitz and Glamour League has its fans, but the traditional
+              league still has its place and has history. The traditional league
+              is ready to rumble once again!!! Our trophy still has 10 years to
+              go until it is full; who wants to add their name to this
+              historical marker?
+            </p>
+            <p>
+              We have heard rumors that history has been mentioned in the Glitz
+              and Glamour League. Can you seriously talk about history in a
+              league that is barely five years old? I guess last week is
+              history, too. One final note about history: In 1985-86, a player
+              by the name of Frank Kornet was drafted in the fifth round of our
+              historic league. And now, 29 years later, his son played for and
+              graduated from Vanderbilt. Additional historic note: South
+              Carolina also had a second generation player; BJ McKie's son
+              played for South Carolina. We will continue this league until
+              there are grandchildren!! That, my friends, is history!
             </p>
           </Col>
           <Col className="col-2"></Col>
         </Row>
       </Container>
-      <Navbar fixed="bottom">
+      <Navbar sticky="bottom">
         <Container className="text-center">
           <Row className="row-1">
             <Col>
