@@ -29,14 +29,14 @@ export default function History() {
                 <tr>
                   <td>2020-2021</td>
                   <td>A. Mills</td>
-                  <td>?</td>
+                  <td>1633</td>
                 </tr>
               </tbody>
               <tbody>
                 <tr>
-                  <td>2019-2020</td>
+                  <td>Covid19-2020*</td>
                   <td>A. Mills</td>
-                  <td>?</td>
+                  <td>1784</td>
                 </tr>
               </tbody>
               <tbody>
