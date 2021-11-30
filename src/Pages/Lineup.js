@@ -3,14 +3,6 @@ import { Container, Row, Col, Dropdown, Navbar, Image } from "react-bootstrap";
 import Roster from "../Components/Roster";
 
 export default function Lineup() {
-  let members = [
-    "A. Mills",
-    "M. Mills",
-    "J. Storrow",
-    "Zimmer",
-    "Spencer",
-    "Prezkop",
-  ];
   return (
     <>
       <Container>
