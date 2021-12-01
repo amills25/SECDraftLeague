@@ -2,6 +2,7 @@ import React from "react";
 import { Container, Row, Col, Image, ListGroup } from "react-bootstrap";
 
 export default function Home() {
+  //will need to make a fetch for the blog content
   return (
     <>
       <br></br>
