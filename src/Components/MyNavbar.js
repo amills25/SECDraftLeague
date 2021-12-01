@@ -1,14 +1,13 @@
 import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import axios from "axios";
 
 export default function MyNavbar(props) {
   const logOut = () => {
     axios({
       method: "get",
-      url:
-        "https://port-3000-aincbootcampapi-ianrios529550.codeanyapp.com/api/auth/logout",
+      url: "https://laravel-awmills25552543.codeanyapp.com/api/v1/logout",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -58,13 +57,16 @@ export default function MyNavbar(props) {
             >
               New User
             </Nav.Link>
-            {/* {props.token.length > 0 ? (
-              <Nav.Link onClick={logOut}>Logout</Nav.Link>
+            {props.token.length > 0 ? (
+              // how do i navigate?
+              <Nav.Link as={Link} to="/home" onClick={logOut}>
+                Logout
+              </Nav.Link>
             ) : (
               <Nav.Link activeClassName={"active"} as={NavLink} to="/login">
                 Login
               </Nav.Link>
-            )} */}
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

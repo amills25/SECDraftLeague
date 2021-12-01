@@ -8,6 +8,7 @@ export default function Login(props) {
 
   const getLogin = (event) => {
     event.preventDefault();
+    console.log(login);
     axios({
       method: "post",
       url: "https://laravel-awmills25552543.codeanyapp.com/oauth/token",
@@ -15,7 +16,7 @@ export default function Login(props) {
         username: login.email,
         password: login.password,
         grant_type: "password",
-        client_id: "2",
+        client_id: 2,
         client_secret: "4omddLSCpbDQb0nVxdcB8qzen8DRav4BVV71zuup",
         scope: "",
       },
@@ -38,6 +39,12 @@ export default function Login(props) {
       });
   };
 
+  const handleChange = (e) =>
+    setLogin((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+
   return props.token.length > 0 ? (
     <Navigate to="/lineup" />
   ) : (
@@ -50,14 +57,34 @@ export default function Login(props) {
             <Form onSubmit={getLogin}>
               <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email"
+                  id="email"
+                  name="email"
+                  value={login.email || ""}
+                  onChange={handleChange}
+                  //   onSubmit={handleSubmit}
+                />
               </Form.Group>
 
               <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Enter password" />
+                <Form.Control
+                  type="password"
+                  placeholder="Enter password"
+                  id="password"
+                  name="password"
+                  value={login.password || ""}
+                  onChange={handleChange}
+                  //   onSubmit={handleSubmit}
+                />
               </Form.Group>
-              <Button variant="outline-dark" type="submit">
+              <Button
+                variant="outline-dark"
+                type="submit"
+                // onSubmit={handleSubmit}
+              >
                 Submit
               </Button>
               <br></br>

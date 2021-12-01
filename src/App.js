@@ -13,18 +13,26 @@ import NewUser from "../src/Pages/NewUser";
 import Login from "../src/Pages/Login";
 
 function App() {
-  const user = { membership: "Commissioner" }; //use api to determine membership status later on
   const [token, setToken] = useState("");
+  const [userData, setUserData] = useState({});
 
   useEffect(() => {
     let myToken = window.localStorage.getItem("token");
     if (myToken) {
       setToken(myToken);
     }
-  });
+  }, []);
+
+  useEffect(() => {
+    if (token.length > 0) {
+      //run axios call to get user data
+      //use a resource to combine user (id, name, email), membership.label, and usermembership tables
+    }
+  }, [token]);
+  // get user info
 
   const saveToken = (userToken) => {
-    localStorage.setItem("token");
+    localStorage.setItem("token", userToken);
     setToken(userToken);
   };
 
@@ -54,7 +62,7 @@ function App() {
             path="/login"
             element={<Login token={token} saveToken={saveToken} />}
           />
-          <Route path="/editor" element={<Editor user={user} />} />
+          <Route path="/editor" element={<Editor userData={userData} />} />
           <Route
             path="/*"
             element={<Home token={token} saveToken={saveToken} />}
