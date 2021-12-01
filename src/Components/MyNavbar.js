@@ -18,7 +18,6 @@ export default function MyNavbar(props) {
     })
       .then(function (response) {
         props.removeToken();
-        // history.push("/");
         console.log(response);
       })
       .catch(function (error) {

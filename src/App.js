@@ -12,9 +12,8 @@ import Rules from "../src/Pages/Rules";
 import NewUser from "../src/Pages/NewUser";
 import Login from "../src/Pages/Login";
 
-const user = { membership: "Commissioner" };
-
 function App() {
+  const user = { membership: "Commissioner" }; //use api to determine membership status later on
   return (
     <>
       <MyNavbar />
@@ -27,10 +26,8 @@ function App() {
           <Route path="/rules" element={<Rules />} />
           <Route path="/newuser" element={<NewUser />} />
           <Route path="/login" element={<Login />} />
-          {user.membership === "Commissioner" && (
-            <Route path="/editor" element={<Editor />} />
-          )}
-          <Route path="/" element={<Home />} />
+          <Route path="/editor" element={<Editor user={user} />} />
+          <Route path="/*" element={<Home />} />
         </Routes>
       </main>
       <Footer />

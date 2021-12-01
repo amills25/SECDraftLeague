@@ -1,8 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Container, Row, Col, Image, ListGroup } from "react-bootstrap";
 
 export default function Home() {
   //will need to make a fetch for the blog content
+  const [blogPost, setBlogPost] = useState([]);
+
+  const token = window.localStorage.getItem("token");
+
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/blogpost",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+        "Access-Control-Allow-Credentials": true,
+        Authorization: `Bearer ${token}`,
+      },
+    }).then(function (response) {
+      console.log(response);
+      setBlogPost(JSON.parse(response.data[0].content));
+    });
+  }, []);
+
   return (
     <>
       <br></br>
@@ -58,35 +82,14 @@ export default function Home() {
         <Row>
           <Col className="col-2"></Col>
           <Col className="col-8 text-center">
-            <h4>[week.id]</h4>
-            <p>
-              Back for its 39th year, The Original SEC Draft League! Where
-              history trumps glitz and glamour and gimmicks!!
-            </p>
-            <p>
-              The draft is complete. Let the games begin. Let's see who can
-              score once the real games begin. Good luck!!!!
-            </p>
-            <p>
-              Thirty-Nine years!! Wow, this league is getting some age on it.
-              The Glitz and Glamour League has its fans, but the traditional
-              league still has its place and has history. The traditional league
-              is ready to rumble once again!!! Our trophy still has 10 years to
-              go until it is full; who wants to add their name to this
-              historical marker?
-            </p>
-            <p>
-              We have heard rumors that history has been mentioned in the Glitz
-              and Glamour League. Can you seriously talk about history in a
-              league that is barely five years old? I guess last week is
-              history, too. One final note about history: In 1985-86, a player
-              by the name of Frank Kornet was drafted in the fifth round of our
-              historic league. And now, 29 years later, his son played for and
-              graduated from Vanderbilt. Additional historic note: South
-              Carolina also had a second generation player; BJ McKie's son
-              played for South Carolina. We will continue this league until
-              there are grandchildren!! That, my friends, is history!
-            </p>
+            <h4>[lineup.week_id]</h4>
+            {blogPost.map((content, index) => (
+              <p key={index}>{content}</p>
+            ))}
+            <textarea
+              cols={60}
+              value={blogPost.map((content, index) => content + "\n\n")}
+            />
           </Col>
           <Col className="col-2"></Col>
         </Row>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Form, Container, Row, Col, Button } from "react-bootstrap";
 
-export default function Editor() {
+export default function Editor(props) {
   const [content, setContent] = useState("");
   const [updateStatus, setUpdateStatus] = useState("idle");
   const [fetchStatus, setFetchStatus] = useState("idle");
@@ -13,6 +13,7 @@ export default function Editor() {
       //to do -- fetch current blog content on load
       //to do -- set default content state to current blog content
       //if successful fetch, setFetchStatus("success");
+      //map through array of strings to render on page
     }
     fetchCurrentBlogContent();
   }, []);
@@ -29,7 +30,11 @@ export default function Editor() {
     console.log(content);
   }
 
-  return (
+  return props.user.membership !== "Commissioner" ? (
+    <Container>
+      Error 401 -- Unauthorized User, must be commissioner. //Use Navigate later
+    </Container>
+  ) : (
     <Container>
       <Row>
         <Col>

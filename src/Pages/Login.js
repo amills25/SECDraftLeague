@@ -1,8 +1,31 @@
 import React from "react";
+import axios from "axios";
 import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
 export default function Login() {
-  //axios
+  let token = "";
+  function handleClick(event) {
+    axios({
+      method: "post",
+      url: "https://laravel-awmills25552543.codeanyapp.com/oauth/token",
+      data: {
+        //email
+        //password
+      },
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+        "Access-Control-Allow-Credentials": true,
+        Authorization: `Bearer ${token}`,
+      },
+    }).then(function (response) {
+      console.log(response);
+      token.saveToken(response.data.data.token);
+    });
+  }
 
   return (
     <>
