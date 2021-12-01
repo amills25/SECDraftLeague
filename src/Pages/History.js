@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Table,
-  Container,
-  Row,
-  Col,
-  ListGroup,
-  Image,
-  Navbar,
-} from "react-bootstrap";
+import { Table, Container, Row, Col, ListGroup, Image } from "react-bootstrap";
 
 export default function History() {
   return (
@@ -371,21 +363,6 @@ export default function History() {
           </Col>
         </Row>
       </Container>
-      <Navbar sticky="bottom">
-        <Container className="text-center">
-          <Row className="row-1">
-            <Col>
-              <Image
-                src="./img/AMBlackXLTransBG.jpg"
-                alt="Andrew Mills Logo"
-                width="30"
-                height="24"
-              />
-              Developed by Andrew Mills, 2021.
-            </Col>
-          </Row>
-        </Container>
-      </Navbar>
     </>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Navbar, Image } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 export default function Rules() {
   return (
@@ -92,21 +92,6 @@ export default function Rules() {
           </Col>
         </Row>
       </Container>
-      <Navbar sticky="bottom">
-        <Container className="text-center">
-          <Row className="row-1">
-            <Col>
-              <Image
-                src="./img/AMBlackXLTransBG.jpg"
-                alt="Andrew Mills Logo"
-                width="30"
-                height="24"
-              />
-              Developed by Andrew Mills, 2021.
-            </Col>
-          </Row>
-        </Container>
-      </Navbar>
     </>
   );
 }

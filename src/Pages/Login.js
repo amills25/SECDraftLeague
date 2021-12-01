@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Container,
-  Row,
-  Col,
-  Form,
-  Button,
-  Navbar,
-  Image,
-} from "react-bootstrap";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 
 export default function Login() {
   //axios
@@ -41,21 +33,6 @@ export default function Login() {
           </Col>
         </Row>
       </Container>
-      <Navbar fixed="bottom">
-        <Container className="text-center">
-          <Row className="row-1">
-            <Col>
-              <Image
-                src="./img/AMBlackXLTransBG.jpg"
-                alt="Andrew Mills Logo"
-                width="30"
-                height="24"
-              />
-              Developed by Andrew Mills, 2021.
-            </Col>
-          </Row>
-        </Container>
-      </Navbar>
     </>
   );
 }

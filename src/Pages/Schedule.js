@@ -1,5 +1,5 @@
 import React from "react";
-import { Table, Navbar, Image, Container, Row, Col } from "react-bootstrap";
+import { Table, Container, Row, Col } from "react-bootstrap";
 
 export default function Schedule() {
   return (
@@ -251,21 +251,6 @@ export default function Schedule() {
           </Col>
         </Row>
       </Container>
-      <Navbar sticky="bottom">
-        <Container className="text-center">
-          <Row className="row-1">
-            <Col>
-              <Image
-                src="./img/AMBlackXLTransBG.jpg"
-                alt="Andrew Mills Logo"
-                width="30"
-                height="24"
-              />
-              Developed by Andrew Mills, 2021.
-            </Col>
-          </Row>
-        </Container>
-      </Navbar>
     </>
   );
 }
