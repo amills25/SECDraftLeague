@@ -40,7 +40,9 @@ export default function MyNavbar(props) {
             className="fw-bold"
             activeClassName={"active"}
             as={NavLink}
-            to={`/lineup/${props.userData.id}`}
+            to={
+              props.userData.id ? `/lineup/${props.userData.id}` : `/lineup/1`
+            }
           >
             Lineup
           </Nav.Link>

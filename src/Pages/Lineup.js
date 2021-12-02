@@ -4,7 +4,7 @@ import { Container, Row, Col, Dropdown, Button } from "react-bootstrap";
 import Roster from "../Components/Roster";
 
 export default function Lineup(props) {
-  const { id } = useParams();
+  const { id = 1 } = useParams();
   //TODO: create an array of members and connect the dropdown to their index
   let members = [
     "Mike Mills",

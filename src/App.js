@@ -26,8 +26,6 @@ function App() {
 
   useEffect(() => {
     if (token.length > 0) {
-      //run axios call to get user data
-      //use a resource to combine user (id, name, email), membership.label, and usermembership tables to setUserData
       console.log("hello");
       axios({
         method: "get",
