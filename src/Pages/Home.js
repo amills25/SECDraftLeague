@@ -6,9 +6,6 @@ export default function Home(props) {
   const [blogPost, setBlogPost] = useState([]);
   const [editing, setEditing] = useState(false);
 
-  //once i can log in, this can be taken out
-  //   const token = window.localStorage.getItem("token");
-
   useEffect(() => {
     axios({
       method: "get",
@@ -115,7 +112,6 @@ export default function Home(props) {
         <Row>
           <Col className="col-2"></Col>
           <Col className="col-8 text-center">
-            {/* TODO: make only visible for commissioner */}
             {editing ? (
               <textarea
                 cols={100}
@@ -126,9 +122,12 @@ export default function Home(props) {
             ) : (
               blogPost.map((content, index) => <p key={index}>{content}</p>)
             )}
-            <Button variant="outline-dark" onClick={handleEdit}>
-              {editing ? "Save blog post" : "Edit blog post"}
-            </Button>
+            {Object.keys(props.userData).length > 0 &&
+              props.userData?.user_memberships[0]?.membership_id === 1 && (
+                <Button variant="outline-dark" onClick={handleEdit}>
+                  {editing ? "Save blog post" : "Edit blog post"}
+                </Button>
+              )}
             {editing && (
               <Button
                 variant="outline-dark"

@@ -46,7 +46,8 @@ export default function Login(props) {
     }));
 
   return props.token.length > 0 ? (
-    <Navigate to="/lineup" />
+    // `/lineup#/${props.userData.id}`
+    <Navigate to="/lineup#/" />
   ) : (
     <>
       <Container className="text-center">
@@ -64,7 +65,6 @@ export default function Login(props) {
                   name="email"
                   value={login.email || ""}
                   onChange={handleChange}
-                  //   onSubmit={handleSubmit}
                 />
               </Form.Group>
 
@@ -77,14 +77,9 @@ export default function Login(props) {
                   name="password"
                   value={login.password || ""}
                   onChange={handleChange}
-                  //   onSubmit={handleSubmit}
                 />
               </Form.Group>
-              <Button
-                variant="outline-dark"
-                type="submit"
-                // onSubmit={handleSubmit}
-              >
+              <Button variant="outline-dark" type="submit">
                 Submit
               </Button>
               <br></br>

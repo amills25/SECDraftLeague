@@ -16,12 +16,12 @@ export default function Lineup() {
               </Dropdown.Toggle>
 
               <Dropdown.Menu>
-                <Dropdown.Item href="#/amills">Andrew Mills</Dropdown.Item>
-                <Dropdown.Item href="#/spencer">Clark Spencer</Dropdown.Item>
-                <Dropdown.Item href="#/prezkop">Dylan Prezkop</Dropdown.Item>
-                <Dropdown.Item href="#/jstorrow">Joel Storrow</Dropdown.Item>
-                <Dropdown.Item href="#/mmills">Mike Mills</Dropdown.Item>
-                <Dropdown.Item href="#/zimmer">Team Zimmer</Dropdown.Item>
+                <Dropdown.Item href="#/2">Andrew Mills</Dropdown.Item>
+                <Dropdown.Item href="#/5">Clark Spencer</Dropdown.Item>
+                <Dropdown.Item href="#/4">Dylan Prezkop</Dropdown.Item>
+                <Dropdown.Item href="#/3">Joel Storrow</Dropdown.Item>
+                <Dropdown.Item href="#/1">Mike Mills</Dropdown.Item>
+                <Dropdown.Item href="#/6">Team Zimmer</Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
           </Col>

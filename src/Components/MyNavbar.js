@@ -49,16 +49,15 @@ export default function MyNavbar(props) {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
           <Nav>
-            <Nav.Link
+            {/* <Nav.Link
               activeClassName={"active"}
               as={NavLink}
               to="/newuser"
               className="ml-auto"
             >
               New User
-            </Nav.Link>
+            </Nav.Link> */}
             {props.token.length > 0 ? (
-              // how do i navigate?
               <Nav.Link as={Link} to="/home" onClick={logOut}>
                 Logout
               </Nav.Link>

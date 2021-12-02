@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import axios from "axios";
 import MyNavbar from "./Components/MyNavbar";
 import Footer from "./Components/Footer";
 import Home from "../src/Pages/Home";
@@ -26,10 +27,34 @@ function App() {
   useEffect(() => {
     if (token.length > 0) {
       //run axios call to get user data
-      //use a resource to combine user (id, name, email), membership.label, and usermembership tables
+      //use a resource to combine user (id, name, email), membership.label, and usermembership tables to setUserData
+      console.log("hello");
+      axios({
+        method: "get",
+        url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/user",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "Content-Type",
+          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+          "Access-Control-Allow-Credentials": true,
+          Authorization: `Bearer ${token}`,
+        },
+        data: {
+          user_id: userData.user_id,
+          membership_id: userData.membership_id,
+          grant_type: "password",
+          client_id: 2,
+          client_secret: "4omddLSCpbDQb0nVxdcB8qzen8DRav4BVV71zuup",
+          scope: "",
+        },
+      }).then(function (response) {
+        console.log(response);
+        setUserData(response.data[0]);
+      });
     }
   }, [token]);
-  // get user info
 
   const saveToken = (userToken) => {
     localStorage.setItem("token", userToken);
@@ -65,7 +90,9 @@ function App() {
           <Route path="/editor" element={<Editor userData={userData} />} />
           <Route
             path="/*"
-            element={<Home token={token} saveToken={saveToken} />}
+            element={
+              <Home token={token} saveToken={saveToken} userData={userData} />
+            }
           />
         </Routes>
       </main>
