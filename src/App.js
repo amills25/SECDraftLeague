@@ -68,12 +68,14 @@ function App() {
 
   return (
     <>
-      <MyNavbar removeToken={removeToken} token={token} />
+      <MyNavbar removeToken={removeToken} token={token} userData={userData} />
       <main>
         <Routes>
           <Route
             path="/lineup"
-            element={<Lineup token={token} saveToken={saveToken} />}
+            element={
+              <Lineup token={token} saveToken={saveToken} userData={userData} />
+            }
           />
           <Route path="/standings" element={<Standings />} />
           <Route path="/schedule" element={<Schedule />} />
@@ -85,7 +87,9 @@ function App() {
           />
           <Route
             path="/login"
-            element={<Login token={token} saveToken={saveToken} />}
+            element={
+              <Login token={token} saveToken={saveToken} userData={userData} />
+            }
           />
           <Route path="/editor" element={<Editor userData={userData} />} />
           <Route
