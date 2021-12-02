@@ -17,6 +17,7 @@ export default function MyNavbar(props) {
     })
       .then(function (response) {
         props.removeToken();
+        props.removeUser();
         console.log(response);
       })
       .catch(function (error) {
@@ -30,7 +31,11 @@ export default function MyNavbar(props) {
           <Nav.Link activeClassName={"active"} as={NavLink} to="/home">
             Home
           </Nav.Link>
-          <Nav.Link activeClassName={"active"} as={NavLink} to="/lineup">
+          <Nav.Link
+            activeClassName={"active"}
+            as={NavLink}
+            to={`/lineup/${props.userData.id}`}
+          >
             Lineup
           </Nav.Link>
           <Nav.Link activeClassName={"active"} as={NavLink} to="/standings">

@@ -1,8 +1,11 @@
 import React from "react";
+import { useParams, Link } from "react-router-dom";
 import { Container, Row, Col, Dropdown, Button } from "react-bootstrap";
 import Roster from "../Components/Roster";
 
-export default function Lineup() {
+export default function Lineup(props) {
+  const { id } = useParams();
+
   return (
     <>
       <Container>
@@ -12,17 +15,34 @@ export default function Lineup() {
           <Col>
             <Row>
               <Dropdown>
-                <Dropdown.Toggle variant="light" id="dropdown-basic">
+                <Dropdown.Toggle
+                  variant="light"
+                  id="dropdown-basic"
+                  //   value={currentTeam}
+                >
+                  {/* //TODO: props.roster.name */}
                   Select Team
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item href="#/2">Andrew Mills</Dropdown.Item>
-                  <Dropdown.Item href="#/5">Clark Spencer</Dropdown.Item>
-                  <Dropdown.Item href="#/4">Dylan Prezkop</Dropdown.Item>
-                  <Dropdown.Item href="#/3">Joel Storrow</Dropdown.Item>
-                  <Dropdown.Item href="#/1">Mike Mills</Dropdown.Item>
-                  <Dropdown.Item href="#/6">Team Zimmer</Dropdown.Item>
+                  <Dropdown.Item as={Link} to="/lineup/2">
+                    Andrew Mills
+                  </Dropdown.Item>
+                  <Dropdown.Item as={Link} to="/lineup/5">
+                    Clark Spencer
+                  </Dropdown.Item>
+                  <Dropdown.Item as={Link} to="/lineup/4">
+                    Dylan Prezkop
+                  </Dropdown.Item>
+                  <Dropdown.Item as={Link} to="/lineup/3">
+                    Joel Storrow
+                  </Dropdown.Item>
+                  <Dropdown.Item as={Link} to="/lineup/1">
+                    Mike Mills
+                  </Dropdown.Item>
+                  <Dropdown.Item as={Link} to="/lineup/6">
+                    Team Zimmer
+                  </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </Row>
@@ -37,13 +57,18 @@ export default function Lineup() {
             </Row>
             <Row className="justify-content-center">
               <Col className="col-2">
-                <Button
-                  variant="warning"
-                  size="lg"
-                  // onClick={() => setLineup()}
-                >
-                  Submit Lineup
-                </Button>
+                {Object.keys(props.userData).length > 0 &&
+                  (props.userData?.user_memberships[0].membership_id === 1 ||
+                    props.userData?.user_memberships[0].id ===
+                      parseInt(id)) && (
+                    <Button
+                      variant="warning"
+                      size="lg"
+                      // onClick={() => setLineup()}
+                    >
+                      Submit Lineup
+                    </Button>
+                  )}
               </Col>
             </Row>
           </Col>

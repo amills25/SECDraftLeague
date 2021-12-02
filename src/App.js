@@ -41,14 +41,6 @@ function App() {
           "Access-Control-Allow-Credentials": true,
           Authorization: `Bearer ${token}`,
         },
-        data: {
-          user_id: userData.user_id,
-          membership_id: userData.membership_id,
-          grant_type: "password",
-          client_id: 2,
-          client_secret: "4omddLSCpbDQb0nVxdcB8qzen8DRav4BVV71zuup",
-          scope: "",
-        },
       }).then(function (response) {
         console.log(response);
         setUserData(response.data[0]);
@@ -66,13 +58,22 @@ function App() {
     setToken("");
   };
 
+  const removeUser = () => {
+    setUserData({});
+  };
+
   return (
     <>
-      <MyNavbar removeToken={removeToken} token={token} userData={userData} />
+      <MyNavbar
+        removeToken={removeToken}
+        removeUser={removeUser}
+        token={token}
+        userData={userData}
+      />
       <main>
         <Routes>
           <Route
-            path="/lineup"
+            path="/lineup/:id"
             element={
               <Lineup token={token} saveToken={saveToken} userData={userData} />
             }

@@ -45,8 +45,8 @@ export default function Login(props) {
       [e.target.name]: e.target.value,
     }));
 
-  return props.token.length > 0 ? (
-    <Navigate to={`/lineup#/${props.userData?.user_memberships[0]?.user_id}`} />
+  return Object.keys(props.userData).length > 0 && props.token.length > 0 ? (
+    <Navigate to={`/lineup/${props.userData?.user_memberships[0]?.user_id}`} />
   ) : (
     <>
       <Container className="text-center">
