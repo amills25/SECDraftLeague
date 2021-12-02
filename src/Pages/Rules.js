@@ -89,6 +89,8 @@ export default function Rules() {
             <br></br>
             <h6>GOOD LUCK,</h6>
             <h6>THE COMMISIONER</h6>
+            <br></br>
+            <br></br>
           </Col>
         </Row>
       </Container>

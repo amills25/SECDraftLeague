@@ -28,31 +28,57 @@ export default function MyNavbar(props) {
     <Navbar className="myNav">
       <Container className="myBorder border-5 rounded-3 bg-white container-fluid">
         <Nav className="me-auto">
-          <Nav.Link activeClassName={"active"} as={NavLink} to="/home">
+          <Nav.Link
+            className="fw-bold"
+            activeClassName={"active"}
+            as={NavLink}
+            to="/home"
+          >
             Home
           </Nav.Link>
           <Nav.Link
+            className="fw-bold"
             activeClassName={"active"}
             as={NavLink}
             to={`/lineup/${props.userData.id}`}
           >
             Lineup
           </Nav.Link>
-          <Nav.Link activeClassName={"active"} as={NavLink} to="/standings">
+          <Nav.Link
+            className="fw-bold"
+            activeClassName={"active"}
+            as={NavLink}
+            to="/standings"
+          >
             Standings
           </Nav.Link>
-          <Nav.Link activeClassName={"active"} as={NavLink} to="/schedule">
+          <Nav.Link
+            className="fw-bold"
+            activeClassName={"active"}
+            as={NavLink}
+            to="/schedule"
+          >
             Schedule
           </Nav.Link>
-          <Nav.Link activeClassName={"active"} as={NavLink} to="/history">
+          <Nav.Link
+            className="fw-bold"
+            activeClassName={"active"}
+            as={NavLink}
+            to="/history"
+          >
             Hall of Fame
           </Nav.Link>
-          <Nav.Link activeClassName={"active"} as={NavLink} to="/rules">
+          <Nav.Link
+            className="fw-bold"
+            activeClassName={"active"}
+            as={NavLink}
+            to="/rules"
+          >
             Rules
           </Nav.Link>
         </Nav>
         <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
+        <Navbar.Collapse className="justify-content-end fw-bold">
           <Nav>
             {/* <Nav.Link
               activeClassName={"active"}

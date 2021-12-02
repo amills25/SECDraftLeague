@@ -51,7 +51,7 @@ export default function Login(props) {
     <>
       <Container className="text-center">
         <Row className="justify-content-center">
-          <Col className="col-4">
+          <Col className="col-3">
             <h1 className="text-center">LOGIN</h1>
             <hr></hr>
             <Form onSubmit={getLogin}>
@@ -81,11 +81,11 @@ export default function Login(props) {
               <Button variant="outline-dark" type="submit">
                 Submit
               </Button>
-              <br></br>
+              {/* <br></br>
               <br></br>
               <Button variant="outline-dark" type="submit">
                 New User
-              </Button>
+              </Button> */}
             </Form>
           </Col>
         </Row>

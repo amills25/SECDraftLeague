@@ -5,6 +5,18 @@ import Roster from "../Components/Roster";
 
 export default function Lineup(props) {
   const { id } = useParams();
+  //TODO: create an array of members and connect the dropdown to their index
+  let members = [
+    "Mike Mills",
+    "Andrew Mills",
+    "Joel Storrow",
+    "Dylan Prezkop",
+    "Clark Spencer",
+    "Team Zimmer",
+  ];
+
+  let currentTeam = parseInt(id);
+  console.log(currentTeam);
 
   return (
     <>
@@ -18,10 +30,10 @@ export default function Lineup(props) {
                 <Dropdown.Toggle
                   variant="light"
                   id="dropdown-basic"
-                  //   value={currentTeam}
+                  value={members[currentTeam]}
                 >
                   {/* //TODO: props.roster.name */}
-                  Select Team
+                  {members[currentTeam - 1]}
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
