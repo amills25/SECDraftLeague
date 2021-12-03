@@ -16,3 +16,7 @@ body,
 .myBorder {
   border: 1px solid #315db1 !important;
 }
+
+.myPad {
+  padding-top: 15px;
+}

@@ -287,7 +287,11 @@ export default function History() {
           </Col>
           <Col className="myBorder col-4 border border-5 rounded-3 bg-white">
             <ListGroup variant="flush">
-              Title Count:
+              <div className="text-center myPad">
+                <h4>
+                  <u>Title Count:</u>
+                </h4>
+              </div>
               <ListGroup.Item>
                 M. Mills{" "}
                 <Image className="logo" src="../img/trophy.png" fluid />{" "}

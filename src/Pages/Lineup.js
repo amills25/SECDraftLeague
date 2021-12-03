@@ -28,7 +28,7 @@ export default function Lineup(props) {
             <Row>
               <Dropdown>
                 <Dropdown.Toggle
-                  variant="light"
+                  variant="light btn-lg"
                   id="dropdown-basic"
                   value={members[currentTeam]}
                 >

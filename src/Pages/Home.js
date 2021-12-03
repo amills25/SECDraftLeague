@@ -66,7 +66,9 @@ export default function Home(props) {
           <Col className="myBorder col-3 border-5 rounded-3 bg-white">
             <ListGroup as="ol" numbered variant="flush">
               <div className="fw-bold text-center">
-                <u>Current Standings:</u>
+                <h5>
+                  <u>Current Standings:</u>
+                </h5>
               </div>
               <ListGroup.Item as="li">
                 lineup.name -- lineup.total
@@ -94,7 +96,9 @@ export default function Home(props) {
           <Col className="myBorder col-3 border-5 rounded-3 bg-white">
             <ListGroup numbered variant="flush">
               <div className="fw-bold text-center">
-                <u>Recent Champions:</u>
+                <h5>
+                  <u>Recent Champions:</u>
+                </h5>
               </div>
               <ListGroup.Item>2021: Andrew Mills</ListGroup.Item>
               <ListGroup.Item>2020: Andrew Mills</ListGroup.Item>
