@@ -7,6 +7,7 @@ import "./index.css";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/js/bootstrap.js";
+import "@devexpress/dx-react-grid-bootstrap4/dist/dx-react-grid-bootstrap4.css";
 
 ReactDOM.render(
   <BrowserRouter>
