@@ -26,7 +26,6 @@ function App() {
 
   useEffect(() => {
     if (token.length > 0) {
-      console.log("hello");
       axios({
         method: "get",
         url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/user",
@@ -40,7 +39,6 @@ function App() {
           Authorization: `Bearer ${token}`,
         },
       }).then(function (response) {
-        console.log(response);
         setUserData(response.data[0]);
       });
     }

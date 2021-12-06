@@ -4,7 +4,6 @@ import { Container, Row, Col, Image, ListGroup, Button } from "react-bootstrap";
 
 export default function Home(props) {
   const [blogPost, setBlogPost] = useState([]);
-  const [editing, setEditing] = useState(false);
 
   useEffect(() => {
     axios({
@@ -20,7 +19,6 @@ export default function Home(props) {
         // Authorization: `Bearer ${token}`,
       },
     }).then(function (response) {
-      console.log(response);
       setBlogPost(JSON.parse(response.data[0].content));
     });
   }, []);
@@ -29,10 +27,11 @@ export default function Home(props) {
     setBlogPost(e.target.value.split("\n\n"));
   };
 
+  const [editing, setEditing] = useState(false);
+
   const handleEdit = () => {
     setEditing((prevEdit) => {
       if (!prevEdit === false) {
-        console.log("saving to db");
         axios({
           method: "post",
           url:
@@ -49,13 +48,13 @@ export default function Home(props) {
           data: {
             content: blogPost,
           },
-        }).then(function (response) {
-          console.log(response);
-        });
+        }).then(function (response) {});
       }
       return !prevEdit;
     });
   };
+
+  const [standings, setStandings] = useState([{ name: "", points: 0 }]);
 
   return (
     <>
@@ -70,6 +69,7 @@ export default function Home(props) {
                   <u>Current Standings:</u>
                 </h5>
               </div>
+              {/* array of objects with team name and their points total */}
               <ListGroup.Item as="li">
                 lineup.name -- lineup.total
               </ListGroup.Item>

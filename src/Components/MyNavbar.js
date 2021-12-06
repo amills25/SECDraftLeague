@@ -18,11 +18,8 @@ export default function MyNavbar(props) {
       .then(function (response) {
         props.removeToken();
         props.removeUser();
-        console.log(response);
       })
-      .catch(function (error) {
-        console.log(error);
-      });
+      .catch(function (error) {});
   };
   return (
     <Navbar className="myNav">

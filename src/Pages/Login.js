@@ -8,7 +8,6 @@ export default function Login(props) {
 
   const getLogin = (event) => {
     event.preventDefault();
-    console.log(login);
     axios({
       method: "post",
       url: "https://laravel-awmills25552543.codeanyapp.com/oauth/token",
@@ -31,12 +30,9 @@ export default function Login(props) {
       },
     })
       .then(function (response) {
-        console.log(response);
         props.saveToken(response.data.access_token);
       })
-      .catch(function (error) {
-        console.log({ error });
-      });
+      .catch(function (error) {});
   };
 
   const handleChange = (e) =>
