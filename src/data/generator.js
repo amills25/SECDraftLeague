@@ -1,3 +1,4 @@
+import { SummaryState } from "@devexpress/dx-react-grid";
 import randomSeed from "./random";
 
 const femaleFirstNames = [
@@ -349,3 +350,12 @@ export function generateRows({
 
   return data;
 }
+
+export function generateSum ({
+    columnValues,
+    length,
+    random = randomSeed(329972281),
+}) {
+    //sum of row contents
+    return "sum";
+};

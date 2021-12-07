@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import { EditingState } from "@devexpress/dx-react-grid";
 import {
   Grid,
@@ -10,61 +11,47 @@ import {
 // import "@devexpress/dx-react-grid-bootstrap4/dist/dx-react-grid-bootstrap4.css";
 import Toggle from "../Components/Toggle";
 
-import { generateRows } from "../data/generator";
+import { generateRows, generateSum } from "../data/generator";
 
 const getRowId = (row) => row.id;
 
-export default function Roster() {
+export default function Roster(props) {
+  let d = new Date();
+  let day = d.getDay();
+
+  const { id = 1 } = useParams();
+
   const [columns] = useState([
-    { name: "active", title: "Active" },
+    { name: "active", title: "In?" },
     { name: "name", title: "Name" },
     { name: "team", title: "Team" },
-    { name: "game1", title: "1" },
-    { name: "game2", title: "2" },
-    { name: "game3", title: "3" },
-    { name: "game4", title: "4" },
-    { name: "game5", title: "5" },
-    { name: "game6", title: "6" },
-    { name: "game7", title: "7" },
-    { name: "game8", title: "8" },
-    { name: "game9", title: "9" },
-    { name: "game10", title: "10" },
-    { name: "game11", title: "11" },
-    { name: "game12", title: "12" },
-    { name: "game13", title: "13" },
-    { name: "game14", title: "14" },
-    { name: "game15", title: "15" },
-    { name: "game16", title: "16" },
-    { name: "game17", title: "17" },
-    { name: "game18", title: "18" },
-    { name: "game19", title: "19" },
-    { name: "game20", title: "20" },
+    { name: "week1", title: "Week1" },
+    { name: "week2", title: "Week2" },
+    { name: "week3", title: "Week3" },
+    { name: "week4", title: "Week4" },
+    { name: "week5", title: "Week5" },
+    { name: "week6", title: "Week6" },
+    { name: "week7", title: "Week7" },
+    { name: "week8", title: "Week8" },
+    { name: "week9", title: "Week9" },
+    { name: "week10", title: "SECT" },
     { name: "total", title: "Total" },
   ]);
   const columnValues = {
     active: <Toggle />,
-    name: "jeff",
-    game1: 0,
-    game2: 0,
-    game3: 0,
-    game4: 0,
-    game5: 0,
-    game6: 0,
-    game7: 0,
-    game8: 0,
-    game9: 0,
-    game10: 0,
-    game11: 0,
-    game12: 0,
-    game13: 0,
-    game14: 0,
-    game15: 0,
-    game16: 0,
-    game17: 0,
-    game18: 0,
-    game19: 0,
-    game20: 0,
-    total: 0,
+    name: "[player]",
+    team: "[tm]",
+    week1: "",
+    week2: "",
+    week3: "",
+    week4: "",
+    week5: "",
+    week6: "",
+    week7: "",
+    week8: "",
+    week9: "",
+    week10: "",
+    total: generateSum,
   };
   const [rows, setRows] = useState(
     generateRows({
@@ -73,7 +60,22 @@ export default function Roster() {
     })
   );
   console.log("EDITING:", { rows });
-  const [tableColumnExtensions] = useState([{ columnName: "id", width: 60 }]);
+  const [tableColumnExtensions] = useState([
+    { columnName: "active", width: "4%" },
+    { columnName: "name", width: "15%" },
+    { columnName: "team", width: "5%" },
+    { columnName: "week1", width: "auto" },
+    { columnName: "week2", width: "auto" },
+    { columnName: "week3", width: "auto" },
+    { columnName: "week4", width: "auto" },
+    { columnName: "week5", width: "auto" },
+    { columnName: "week6", width: "auto" },
+    { columnName: "week7", width: "auto" },
+    { columnName: "week8", width: "auto" },
+    { columnName: "week9", width: "auto" },
+    { columnName: "week10", width: "auto" },
+    { columnName: "total", width: "5%" },
+  ]);
   const [editingRowIds, setEditingRowIds] = useState([]);
   const [addedRows, setAddedRows] = useState([]);
   const [rowChanges, setRowChanges] = useState({});
@@ -135,96 +137,5 @@ export default function Roster() {
   );
 }
 
-// import React from "react";
-// import { Table } from "react-bootstrap";
-
-// export default function Roster() {
-//   return (
-//     <Table responsive>
-//       <thead>
-//         <tr>
-//           <th>Player</th>
-//           <th>Team</th>
-//           {Array.from({ length: 20 }).map((_, index) => (
-//             <th key={index}>{index + 1}</th>
-//           ))}
-//           <th>Points Total</th>
-//         </tr>
-//       </thead>
-//       <tbody>
-//         <tr>
-//           <td>Player.name</td>
-//           <td>Player.team</td>
-//           {Array.from({ length: 20 }).map((_, index) => (
-//             <td key={index}>0</td>
-//           ))}
-//           <th>sum</th>
-//         </tr>
-//         <tr>
-//           <td>Player.name</td>
-//           <td>Player.team</td>
-//           {Array.from({ length: 20 }).map((_, index) => (
-//             <td key={index}>0</td>
-//           ))}
-//           <th>sum</th>
-//         </tr>
-//         <tr>
-//           <td>Player.name</td>
-//           <td>Player.team</td>
-//           {Array.from({ length: 20 }).map((_, index) => (
-//             <td key={index}>0</td>
-//           ))}
-//           <th>sum</th>
-//         </tr>
-//         <tr>
-//           <td>Player.name</td>
-//           <td>Player.team</td>
-//           {Array.from({ length: 20 }).map((_, index) => (
-//             <td key={index}>0</td>
-//           ))}
-//           <th>sum</th>
-//         </tr>
-//         <tr>
-//           <td>Player.name</td>
-//           <td>Player.team</td>
-//           {Array.from({ length: 20 }).map((_, index) => (
-//             <td key={index}>0</td>
-//           ))}
-//           <th>sum</th>
-//         </tr>
-//         <tr>
-//           <td>Player.name</td>
-//           <td>Player.team</td>
-//           {Array.from({ length: 20 }).map((_, index) => (
-//             <td key={index}>0</td>
-//           ))}
-//           <th>sum</th>
-//         </tr>
-//         <tr>
-//           <td>Player.name</td>
-//           <td>Player.team</td>
-//           {Array.from({ length: 20 }).map((_, index) => (
-//             <td key={index}>0</td>
-//           ))}
-//           <th>sum</th>
-//         </tr>
-//         <tr>
-//           <td>Player.name</td>
-//           <td>Player.team</td>
-//           {Array.from({ length: 20 }).map((_, index) => (
-//             <td key={index}>0</td>
-//           ))}
-//           <th>sum</th>
-//         </tr>
-//         <tr>
-//           <td>Player.name</td>
-//           <td>Player.team</td>
-//           {Array.from({ length: 20 }).map((_, index) => (
-//             <td key={index}>0</td>
-//           ))}
-//           <th>sum</th>
-//         </tr>
-//       </tbody>
-//     </Table>
-//   );
-// }
+//need to make active button appear if commissioner, current logged in user, and it's sunday-tuesday
+//need to make edit/delete buttons appear if commissioner
