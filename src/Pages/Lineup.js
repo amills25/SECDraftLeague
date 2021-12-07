@@ -68,9 +68,10 @@ export default function Lineup(props) {
             </Row>
           </Col>
           <Col className="col-6">
-            <h5>Total Points: {sum}</h5>
+            <h2>Total Points: {sum}</h2>
           </Col>
         </Row>
+        <br></br>
       </Container>
       <Container>
         <Row>
@@ -84,12 +85,13 @@ export default function Lineup(props) {
                 </Row>
               ))}
           </Col> */}
-          <Col className="col-11">
+          <Col>
             <Row>
               <Roster />
             </Row>
           </Col>
         </Row>
+        <br></br>
         <Row className="justify-content-center">
           <Col className="col-2">
             {Object.keys(props.userData).length > 0 &&

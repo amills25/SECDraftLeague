@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { useParams } from "react-router-dom";
 import { EditingState } from "@devexpress/dx-react-grid";
 import {
@@ -21,8 +22,48 @@ export default function Roster(props) {
 
   const { id = 1 } = useParams();
 
+  const [roster, setRoster] = useState([]);
+  //   useEffect(fetchAPI, [])
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/lineup",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+        "Access-Control-Allow-Credentials": true,
+        // Authorization: `Bearer ${token}`,
+      },
+    }).then(function (response) {
+      setRoster(JSON.parse(response.data[0].content));
+    });
+  }, []);
+
+  const [laravelAPIData, setLaravelAPIData] = useState([]);
+  //   useEffect(createDefaultRows, [LaravelAPIData])
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/athlete",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+        "Access-Control-Allow-Credentials": true,
+        // Authorization: `Bearer ${token}`,
+      },
+    }).then(function (response) {
+      setLaravelAPIData(JSON.parse(response.data[0].content));
+    });
+  }, [laravelAPIData]);
+
   const [columns] = useState([
-    { name: "active", title: "In?" },
+    { name: "active", title: "Active" },
     { name: "name", title: "Name" },
     { name: "team", title: "Team" },
     { name: "week1", title: "Week1" },
@@ -59,9 +100,31 @@ export default function Roster(props) {
       length: 9,
     })
   );
+  //   useEffect( saveToDB, [rows])
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/week",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+        "Access-Control-Allow-Credentials": true,
+        // Authorization: `Bearer ${token}`,
+      },
+    }).then(function (response) {
+      setRows(JSON.parse(response.data[0].content));
+    });
+  }, [rows]);
+
+  const [editingStateColumnExtensions] = useState([
+    { columnName: "active", editingEnabled: false },
+  ]);
   console.log("EDITING:", { rows });
   const [tableColumnExtensions] = useState([
-    { columnName: "active", width: "4%" },
+    { columnName: "active", width: "6%" },
     { columnName: "name", width: "15%" },
     { columnName: "team", width: "5%" },
     { columnName: "week1", width: "auto" },
@@ -123,6 +186,8 @@ export default function Roster(props) {
           addedRows={addedRows}
           onAddedRowsChange={changeAddedRows}
           onCommitChanges={commitChanges}
+          defaultEditingRowIds={[0]}
+          columnExtensions={editingStateColumnExtensions}
         />
         <Table columnExtensions={tableColumnExtensions} />
         <TableHeaderRow />
