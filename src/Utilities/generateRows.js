@@ -8,34 +8,32 @@ export const generateRows = ({
   const athleteIDs = [
     ...new Set(memberRosterData.weeks.map((item) => item.athlete_id)),
   ];
-  console.log({
-    memberRosterData,
-    athleteIDs,
-    columns,
-  });
   let rows = [];
-  for (let week = 0; week < 10; week++) {
-    for (let i = 0; i < athleteIDs.length; i++) {
-      let obj = {
-        active: component,
-      };
-      let total = 0;
+  //   for (let week = 0; week < 10; week++) {
+  for (let i = 0; i < athleteIDs.length; i++) {
+    let athleteID = athleteIDs[i];
+    let athleteData = memberRosterData.weeks.filter(
+      (w) => w.athlete_id === athleteID
+    );
 
-      for (const col of columns) {
-        obj[col.name] = memberRosterData;
+    let obj = {
+      active: component,
+    };
+    obj.name = athleteData[i].athlete.name;
+    obj.team = athleteData[i].athlete.team;
 
-        if (col.name === "name") {
-            obj.name = 
-        }
-        if (col.name === "team") {
-            obj.team = 
-        }
-        let weekNum = parseInt(col.name.split('week')[1])
-      }
-      obj.total = total;
-
-      rows.push(obj);
+    console.log({ athleteData });
+    for (let n = 1; n <= 10; n++) {
+      obj[`week${n}`] = athleteData[n - 1].points;
     }
+
+    obj.total = athleteData.reduce((a, c) => ({
+      points: a.points + c.points,
+    })).points;
+
+    rows.push(obj);
   }
+  //   }
+  console.log({ rows });
   return rows;
 };
