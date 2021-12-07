@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { EditingState } from "@devexpress/dx-react-grid";
@@ -12,7 +12,12 @@ import {
 // import "@devexpress/dx-react-grid-bootstrap4/dist/dx-react-grid-bootstrap4.css";
 import Toggle from "../Components/Toggle";
 
-import { generateRows, generateSum } from "../data/generator";
+import {
+  generateSum,
+  generateRows as exampleGenerateRows,
+} from "../data/generator";
+
+import { generateRows } from "../Utilities/generateRows";
 
 const getRowId = (row) => row.id;
 
@@ -38,29 +43,10 @@ export default function Roster(props) {
         // Authorization: `Bearer ${token}`,
       },
     }).then(function (response) {
-      setRoster(JSON.parse(response.data[0].content));
+      setRoster(response.data);
+      console.log(response);
     });
   }, []);
-
-  const [laravelAPIData, setLaravelAPIData] = useState([]);
-  //   useEffect(createDefaultRows, [LaravelAPIData])
-  useEffect(() => {
-    axios({
-      method: "get",
-      url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/athlete",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
-        "Access-Control-Allow-Credentials": true,
-        // Authorization: `Bearer ${token}`,
-      },
-    }).then(function (response) {
-      setLaravelAPIData(JSON.parse(response.data[0].content));
-    });
-  }, [laravelAPIData]);
 
   const [columns] = useState([
     { name: "active", title: "Active" },
@@ -94,35 +80,75 @@ export default function Roster(props) {
     week10: "",
     total: generateSum,
   };
-  const [rows, setRows] = useState(
-    generateRows({
-      columnValues: { id: ({ index }) => index, ...columnValues },
-      length: 9,
-    })
-  );
-  //   useEffect( saveToDB, [rows])
+
+  const generatedRows = useMemo(() => {
+    if (roster.length > 0) {
+      return generateRows({
+        rosterData: roster,
+        columns,
+        currentRoster: props.currentRoster,
+        component: <Toggle />,
+      });
+    } else {
+      return [];
+    }
+  }, [roster, columns, props.currentRoster]);
+  const [rows, setRows] = useState([]);
+
   useEffect(() => {
-    axios({
-      method: "get",
-      url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/week",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
-        "Access-Control-Allow-Credentials": true,
-        // Authorization: `Bearer ${token}`,
-      },
-    }).then(function (response) {
-      setRows(JSON.parse(response.data[0].content));
-    });
-  }, [rows]);
+    if (generatedRows.length > 0) {
+      setRows(generatedRows);
+    }
+  }, [generatedRows]);
+
+  const exampleRows = exampleGenerateRows({
+    columnValues: { id: ({ index }) => index, ...columnValues },
+    length: 9,
+  });
+  console.log(exampleRows);
+
+  //   const [laravelAPIData, setLaravelAPIData] = useState([]);
+  //   //   useEffect(createDefaultRows, [LaravelAPIData])
+  //   useEffect(() => {
+  //     axios({
+  //       method: "get",
+  //       url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/athlete",
+  //       headers: {
+  //         Accept: "application/json",
+  //         "Content-Type": "application/json",
+  //         "Access-Control-Allow-Origin": "*",
+  //         "Access-Control-Allow-Headers": "Content-Type",
+  //         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+  //         "Access-Control-Allow-Credentials": true,
+  //         // Authorization: `Bearer ${token}`,
+  //       },
+  //     }).then(function (response) {
+  //       //   setLaravelAPIData();
+  //     });
+  //   }, [laravelAPIData]);
+
+  //   useEffect( saveToDB, [rows])
+  //   useEffect(() => {
+  //     axios({
+  //       method: "get",
+  //       url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/week",
+  //       headers: {
+  //         Accept: "application/json",
+  //         "Content-Type": "application/json",
+  //         "Access-Control-Allow-Origin": "*",
+  //         "Access-Control-Allow-Headers": "Content-Type",
+  //         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+  //         "Access-Control-Allow-Credentials": true,
+  //         // Authorization: `Bearer ${token}`,
+  //       },
+  //     }).then(function (response) {
+  //       //   setRows();
+  //     });
+  //   }, [rows]);
 
   const [editingStateColumnExtensions] = useState([
     { columnName: "active", editingEnabled: false },
   ]);
-  console.log("EDITING:", { rows });
   const [tableColumnExtensions] = useState([
     { columnName: "active", width: "6%" },
     { columnName: "name", width: "15%" },

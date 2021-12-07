@@ -19,7 +19,7 @@ export default function Lineup(props) {
     "Team Zimmer",
   ];
 
-  let currentTeam = parseInt(id);
+  let currentRoster = parseInt(id);
 
   let [lineup, setLineup] = useState(false);
   const lockButtons = () => {
@@ -38,10 +38,10 @@ export default function Lineup(props) {
                 <Dropdown.Toggle
                   variant="light btn-lg"
                   id="dropdown-basic"
-                  value={members[currentTeam]}
+                  value={members[currentRoster]}
                 >
                   {/* //TODO: props.roster.name */}
-                  {members[currentTeam - 1]}
+                  {members[currentRoster - 1]}
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
@@ -87,7 +87,7 @@ export default function Lineup(props) {
           </Col> */}
           <Col>
             <Row>
-              <Roster />
+              <Roster currentRoster={currentRoster} />
             </Row>
           </Col>
         </Row>

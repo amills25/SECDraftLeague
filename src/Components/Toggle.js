@@ -7,6 +7,11 @@ export default function Toggle() {
   };
 
   return (
+    // {Object.keys(props.userData).length > 0 &&
+    //     (props.userData?.user_memberships[0].membership_id === 1 ||
+    //       (props.userData?.user_memberships[0].id === parseInt(id) &&
+    //         (day === 0 || day === 1 || day === 2))) &&
+    //     Array.from({ length: 9 }).map((_, index) => (
     <button type="button" onClick={isActive} className="btn">
       {!active ? (
         <svg
@@ -33,5 +38,6 @@ export default function Toggle() {
         </svg>
       )}
     </button>
+    // ))}
   );
 }

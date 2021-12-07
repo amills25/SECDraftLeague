@@ -326,7 +326,6 @@ export function generateRows({
 
     columns.forEach((column) => {
       let values = columnValues[column];
-      console.log({ column, type: typeof values, values });
       if (typeof values === "function") {
         record[column] = values({ random, index: i, record });
         return;
@@ -334,7 +333,6 @@ export function generateRows({
 
       while (values.length === 2 && typeof values[1] === "object") {
         values = values[1][record[values[0]]];
-        console.log("IN WHILE", values);
       }
 
       //   const value = values[Math.floor(random() * values.length)];
@@ -351,11 +349,34 @@ export function generateRows({
   return data;
 }
 
-export function generateSum ({
-    columnValues,
-    length,
-    random = randomSeed(329972281),
+export function generateSum({
+  columnValues,
+  length,
+  random = randomSeed(329972281),
 }) {
-    //sum of row contents
-    return "sum";
-};
+  //   const data = [];
+  //   const columns = Object.keys(columnValues);
+
+  //   for (let i = 0; i < length; i++) {
+  //     const record = {};
+
+  //     columns.forEach((column) => {
+  //       let values = columnValues[column];
+  //       console.log({ column, type: typeof values, values });
+  //       if (typeof values === "function") {
+  //         record[column] = values({ random, index: i, record });
+  //         return;
+  //       }
+
+  //       while (values.length === 2 && typeof values[1] === "object") {
+  //         values = values[1][record[values[0]]];
+  //         console.log("IN WHILE", values);
+  //       }
+
+  //       record[column] = values;
+  //     });
+
+  //     data.push(record);
+  //   }
+  return "sum";
+}
