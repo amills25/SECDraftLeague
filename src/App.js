@@ -4,7 +4,8 @@ import axios from "axios";
 import MyNavbar from "./Components/MyNavbar";
 import Footer from "./Components/Footer";
 import Home from "../src/Pages/Home";
-import Editor from "../src/Pages/Editor";
+import Roster from "../src/Components/Roster";
+import Toggle from "../src/Components/Toggle";
 import Lineup from "../src/Pages/Lineup";
 import Standings from "./Pages/Standings";
 import Schedule from "./Pages/Schedule";
@@ -58,6 +59,11 @@ function App() {
     setUserData({});
   };
 
+  //   const [active, setActive] = useState(false);
+  //   const isActive = () => {
+  //     setActive(!active);
+  //   };
+
   return (
     <>
       <MyNavbar
@@ -88,7 +94,6 @@ function App() {
               <Login token={token} saveToken={saveToken} userData={userData} />
             }
           />
-          <Route path="/editor" element={<Editor userData={userData} />} />
           <Route
             path="/*"
             element={
