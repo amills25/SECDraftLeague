@@ -28,7 +28,6 @@ export default function Roster(props) {
   const { id = 1 } = useParams();
 
   const [roster, setRoster] = useState([]);
-  //   useEffect(fetchAPI, [])
   useEffect(() => {
     axios({
       method: "get",
@@ -101,31 +100,13 @@ export default function Roster(props) {
     }
   }, [generatedRows]);
 
-  const exampleRows = exampleGenerateRows({
-    columnValues: { id: ({ index }) => index, ...columnValues },
-    length: 9,
-  });
-  console.log(exampleRows);
+  //   const exampleRows = exampleGenerateRows({
+  //     columnValues: { id: ({ index }) => index, ...columnValues },
+  //     length: 9,
+  //   });
+  //   console.log(exampleRows);
 
-  //   const [laravelAPIData, setLaravelAPIData] = useState([]);
-  //   //   useEffect(createDefaultRows, [LaravelAPIData])
-  //   useEffect(() => {
-  //     axios({
-  //       method: "get",
-  //       url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/athlete",
-  //       headers: {
-  //         Accept: "application/json",
-  //         "Content-Type": "application/json",
-  //         "Access-Control-Allow-Origin": "*",
-  //         "Access-Control-Allow-Headers": "Content-Type",
-  //         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
-  //         "Access-Control-Allow-Credentials": true,
-  //         // Authorization: `Bearer ${token}`,
-  //       },
-  //     }).then(function (response) {
-  //       //   setLaravelAPIData();
-  //     });
-  //   }, [laravelAPIData]);
+  //TO DO: send rows to database via axios call, receive updated rows from database to run memo
 
   //   useEffect( saveToDB, [rows])
   //   useEffect(() => {

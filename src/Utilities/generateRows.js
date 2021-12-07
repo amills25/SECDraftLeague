@@ -9,7 +9,6 @@ export const generateRows = ({
     ...new Set(memberRosterData.weeks.map((item) => item.athlete_id)),
   ];
   let rows = [];
-  //   for (let week = 0; week < 10; week++) {
   for (let i = 0; i < athleteIDs.length; i++) {
     let athleteID = athleteIDs[i];
     let athleteData = memberRosterData.weeks.filter(
@@ -17,12 +16,13 @@ export const generateRows = ({
     );
 
     let obj = {
+      id: i,
       active: component,
     };
     obj.name = athleteData[i].athlete.name;
     obj.team = athleteData[i].athlete.team;
 
-    console.log({ athleteData });
+    // console.log({ athleteData });
     for (let n = 1; n <= 10; n++) {
       obj[`week${n}`] = athleteData[n - 1].points;
     }
@@ -33,7 +33,6 @@ export const generateRows = ({
 
     rows.push(obj);
   }
-  //   }
-  console.log({ rows });
+  //   console.log({ rows });
   return rows;
 };
