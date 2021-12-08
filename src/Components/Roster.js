@@ -126,7 +126,6 @@ export default function Roster(props) {
     let newRows = [];
     // console.log("Finished editing:", { rowCopy });
     // calculating total
-    // TODO: make total not editable
     for (let i = 0; i < rowCopy.length; i++) {
       let newObj = { ...rowCopy[i] };
       let total = _.reduce(
@@ -270,30 +269,37 @@ export default function Roster(props) {
     setRows(changedRows);
   };
 
+  console.log(props.userData.length);
   return (
-    <div className="card">
-      <Grid rows={rows} columns={columns} getRowId={getRowId}>
-        <EditingState
-          editingRowIds={editingRowIds}
-          onEditingRowIdsChange={setEditingRowIds}
-          rowChanges={rowChanges}
-          onRowChangesChange={setRowChanges}
-          addedRows={addedRows}
-          onAddedRowsChange={changeAddedRows}
-          onCommitChanges={commitChanges}
-          defaultEditingRowIds={[0]}
-          columnExtensions={editingStateColumnExtensions}
-        />
-        <Table columnExtensions={tableColumnExtensions} />
-        <TableHeaderRow />
-        <TableEditRow />
-        <TableEditColumn
-          showAddCommand={!addedRows.length}
-          showEditCommand
-          showDeleteCommand
-        />
-      </Grid>
-    </div>
+    <>
+      <div className="card">
+        {/* {Object.keys(props.userData).length > 0 &&
+          props.userData?.user_memberships[0]?.membership_id === 1 && ( */}
+        <Grid rows={rows} columns={columns} getRowId={getRowId}>
+          <EditingState
+            editingRowIds={editingRowIds}
+            onEditingRowIdsChange={setEditingRowIds}
+            rowChanges={rowChanges}
+            onRowChangesChange={setRowChanges}
+            addedRows={addedRows}
+            onAddedRowsChange={changeAddedRows}
+            onCommitChanges={commitChanges}
+            defaultEditingRowIds={[0]}
+            columnExtensions={editingStateColumnExtensions}
+          />
+          <Table columnExtensions={tableColumnExtensions} />
+          <TableHeaderRow />
+          <TableEditRow />
+          <TableEditColumn
+            //   showAddCommand={!addedRows.length}
+
+            showEditCommand
+            //   showDeleteCommand
+          />
+        </Grid>
+        {/* )} */}
+      </div>
+    </>
   );
 }
 

@@ -87,7 +87,11 @@ export default function Lineup(props) {
           </Col> */}
           <Col>
             <Row>
-              <Roster currentRoster={currentRoster} token={props.token} />
+              <Roster
+                currentRoster={currentRoster}
+                token={props.token}
+                userData={props.userData}
+              />
             </Row>
           </Col>
         </Row>
