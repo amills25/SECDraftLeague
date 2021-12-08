@@ -11,13 +11,12 @@ import {
 } from "@devexpress/dx-react-grid-bootstrap4";
 // import "@devexpress/dx-react-grid-bootstrap4/dist/dx-react-grid-bootstrap4.css";
 import Toggle from "../Components/Toggle";
-
 import {
   generateSum,
   generateRows as exampleGenerateRows,
 } from "../data/generator";
-
 import { generateRows } from "../Utilities/generateRows";
+import _ from "lodash";
 
 const getRowId = (row) => row.id;
 
@@ -92,6 +91,7 @@ export default function Roster(props) {
       return [];
     }
   }, [roster, columns, props.currentRoster]);
+
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
@@ -108,24 +108,71 @@ export default function Roster(props) {
 
   //TO DO: send rows to database via axios call, receive updated rows from database to run memo
 
-  //   useEffect( saveToDB, [rows])
-  //   useEffect(() => {
-  //     axios({
-  //       method: "get",
-  //       url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/week",
-  //       headers: {
-  //         Accept: "application/json",
-  //         "Content-Type": "application/json",
-  //         "Access-Control-Allow-Origin": "*",
-  //         "Access-Control-Allow-Headers": "Content-Type",
-  //         "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
-  //         "Access-Control-Allow-Credentials": true,
-  //         // Authorization: `Bearer ${token}`,
-  //       },
-  //     }).then(function (response) {
-  //       //   setRows();
-  //     });
-  //   }, [rows]);
+  // useEffect( saveToDB, [rows])
+  useEffect(() => {
+    let rowCopy = [...rows];
+    let newRows = [];
+    // console.log("Finished editing:", { rowCopy });
+    for (let i = 0; i < rowCopy.length; i++) {
+      let newObj = { ...rowCopy[i] };
+      let total = _.reduce(
+        newObj,
+        (result, value, key) => {
+          //   console.log(result, value, key);
+          let resultInt = parseInt(result);
+          let valueInt = parseInt(value);
+          if (key.includes("week")) {
+            // console.log(key);
+            return resultInt + valueInt;
+          }
+          return resultInt;
+        },
+        0
+      );
+      //   console.log(total);
+      newObj.total = total;
+      axios({
+        method: "post",
+        url:
+          "https://Laravel-awmills25552543.codeanyapp.com/api/v1/lineup/edit",
+        data: newObj,
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "Content-Type",
+          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+          "Access-Control-Allow-Credentials": true,
+          Authorization: `Bearer ${props.token}`,
+        },
+      });
+      newRows.push(newObj);
+    }
+    if (!_.isEqual(newRows, rows)) {
+      setRows(newRows);
+    }
+
+    // axios({
+    //   method: "post",
+    //   url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/lineup/edit",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //     "Access-Control-Allow-Origin": "*",
+    //     "Access-Control-Allow-Headers": "Content-Type",
+    //     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+    //     "Access-Control-Allow-Credentials": true,
+    //     Authorization: `Bearer ${props.token}`,
+    //   },
+    //   data: {
+    //     //lineup data
+    //     //athlete data
+    //     //week data
+    //   },
+    // }).then(function (response) {
+    //   //   setRows(response.data);
+    // });
+  }, [rows]);
 
   const [editingStateColumnExtensions] = useState([
     { columnName: "active", editingEnabled: false },

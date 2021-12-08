@@ -87,12 +87,12 @@ export default function Lineup(props) {
           </Col> */}
           <Col>
             <Row>
-              <Roster currentRoster={currentRoster} />
+              <Roster currentRoster={currentRoster} token={props.token} />
             </Row>
           </Col>
         </Row>
         <br></br>
-        <Row className="justify-content-center">
+        {/* <Row className="justify-content-center">
           <Col className="col-2">
             {Object.keys(props.userData).length > 0 &&
               (props.userData?.user_memberships[0].membership_id === 1 ||
@@ -106,7 +106,7 @@ export default function Lineup(props) {
                 </Button>
               )}
           </Col>
-        </Row>
+        </Row> */}
       </Container>
     </>
   );
