@@ -86,12 +86,18 @@ export default function Roster(props) {
         columns,
         currentRoster: props.currentRoster,
         component: (athleteID) => (
+          //   props.userData.length > 0 &&
+          //   (props.userData?.user_memberships[0].membership_id === 1 ||
+          //     props.userData?.user_memberships[0].id === parseInt(id)) && (
           <Toggle
             saveToggleState={saveToggleState}
             toggleState={toggleState[athleteID]}
             athleteID={athleteID}
+            userData={props.userData}
           />
+          //TO DO: figure out how to save week_id for all 10 weeks for every player with another if like above
         ),
+        //   ),
       });
     } else {
       return [];
@@ -149,16 +155,17 @@ export default function Roster(props) {
     }
     if (!_.isEqual(newRows, rows)) {
       console.log(newRows);
+
       for (let i = 0; i < newRows.length; i++) {
         // const data = _.map(newRows[i], (row) => {
         //   row.toggle = toggleState[row.active.props.athleteID];
         //   //   console.log(row);
         // });
         const data = { ...newRows[i] };
-        delete data.active;
-        saveToDB(data);
+        // delete data.active;
+        //savetoDB(data); --justin change
       }
-
+      saveToDB(newRows); //--justin change
       setRows(newRows);
     }
   }, [rows]);
@@ -180,10 +187,10 @@ export default function Roster(props) {
                 saveToggleState={saveToggleState}
                 toggleState={toggleState[rowData.props.athleteID]}
                 athleteID={rowData.props.athleteID}
+                userData={props.userData}
               />
             );
           }
-
           obj[key] = rowData;
         });
         // saveToDB(obj);
@@ -198,7 +205,10 @@ export default function Roster(props) {
     axios({
       method: "post",
       url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/lineup/edit",
-      data,
+      data: {
+        rows: data,
+        lineup_id: props.userData.id,
+      },
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -304,4 +314,3 @@ export default function Roster(props) {
 }
 
 //need to make active button appear if commissioner, current logged in user, and it's sunday-tuesday
-//need to make edit/delete buttons appear if commissioner

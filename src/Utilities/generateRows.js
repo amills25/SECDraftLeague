@@ -23,6 +23,8 @@ export const generateRows = ({
     obj["team"] = athleteData[i].athlete.team;
     // todo: initialize from state saved in db
     obj["toggled"] = false;
+    // todo: initialize from state saved in db, need to have a week_id for all points
+    obj["week_id"] = false;
 
     // console.log({ athleteData });
     for (let n = 1; n <= 10; n++) {
