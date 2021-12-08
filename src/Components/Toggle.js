@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
-export default function Toggle() {
-  const [active, setActive] = useState(false);
-  const isActive = () => {
-    setActive(!active);
-  };
+export default function Toggle(props) {
+  //   const [active, setActive] = useState(false);
+  //   const isActive = () => {
+  //     setActive(!active);
+  //   };
+  console.log("TOGGLE INIT:", props.toggleState);
 
   return (
     // {Object.keys(props.userData).length > 0 &&
@@ -12,8 +13,12 @@ export default function Toggle() {
     //       (props.userData?.user_memberships[0].id === parseInt(id) &&
     //         (day === 0 || day === 1 || day === 2))) &&
     //     Array.from({ length: 9 }).map((_, index) => (
-    <button type="button" onClick={isActive} className="btn">
-      {!active ? (
+    <button
+      type="button"
+      onClick={() => props.saveToggleState(props.athleteID)}
+      className="btn"
+    >
+      {!props.toggleState ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="25"

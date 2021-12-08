@@ -17,10 +17,12 @@ export const generateRows = ({
 
     let obj = {
       id: i,
-      active: component,
+      active: component(athleteID),
     };
-    obj.name = athleteData[i].athlete.name;
-    obj.team = athleteData[i].athlete.team;
+    obj["name"] = athleteData[i].athlete.name;
+    obj["team"] = athleteData[i].athlete.team;
+    // todo: initialize from state saved in db
+    obj["toggled"] = false;
 
     // console.log({ athleteData });
     for (let n = 1; n <= 10; n++) {

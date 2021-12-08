@@ -1,13 +1,19 @@
 import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { EditingState } from "@devexpress/dx-react-grid";
+import {
+  EditingState,
+  SelectionState,
+  TreeDataState,
+  CustomTreeData,
+} from "@devexpress/dx-react-grid";
 import {
   Grid,
   Table,
   TableHeaderRow,
   TableEditRow,
   TableEditColumn,
+  TableTreeColumn,
 } from "@devexpress/dx-react-grid-bootstrap4";
 // import "@devexpress/dx-react-grid-bootstrap4/dist/dx-react-grid-bootstrap4.css";
 import Toggle from "../Components/Toggle";
@@ -25,6 +31,16 @@ export default function Roster(props) {
   let day = d.getDay();
 
   const { id = 1 } = useParams();
+
+  const [toggleState, setToggleState] = useState({});
+  const saveToggleState = (athleteID) => {
+    setToggleState((prevState) => {
+      let newState = { ...prevState };
+      newState[athleteID] = !newState[athleteID];
+      console.log({ athleteID, newState });
+      return newState;
+    });
+  };
 
   const [roster, setRoster] = useState([]);
   useEffect(() => {
@@ -62,22 +78,6 @@ export default function Roster(props) {
     { name: "week10", title: "SECT" },
     { name: "total", title: "Total" },
   ]);
-  const columnValues = {
-    active: <Toggle />,
-    name: "[player]",
-    team: "[tm]",
-    week1: "",
-    week2: "",
-    week3: "",
-    week4: "",
-    week5: "",
-    week6: "",
-    week7: "",
-    week8: "",
-    week9: "",
-    week10: "",
-    total: generateSum,
-  };
 
   const generatedRows = useMemo(() => {
     if (roster.length > 0) {
@@ -85,7 +85,13 @@ export default function Roster(props) {
         rosterData: roster,
         columns,
         currentRoster: props.currentRoster,
-        component: <Toggle />,
+        component: (athleteID) => (
+          <Toggle
+            saveToggleState={saveToggleState}
+            toggleState={toggleState[athleteID]}
+            athleteID={athleteID}
+          />
+        ),
       });
     } else {
       return [];
@@ -94,9 +100,15 @@ export default function Roster(props) {
 
   const [rows, setRows] = useState([]);
 
+  // when we first generate the rows, we also generate the toogle state
   useEffect(() => {
     if (generatedRows.length > 0) {
       setRows(generatedRows);
+      let obj = {};
+      for (let i = 0; i < generatedRows.length; i++) {
+        obj[generatedRows[i].active.props.athleteID] = generatedRows[i].toggled;
+      }
+      setToggleState(obj);
     }
   }, [generatedRows]);
 
@@ -106,13 +118,15 @@ export default function Roster(props) {
   //   });
   //   console.log(exampleRows);
 
-  //TO DO: send rows to database via axios call, receive updated rows from database to run memo
-
   // useEffect( saveToDB, [rows])
+
+  // save button on row, triggers updating the row in state and then saves to db
   useEffect(() => {
     let rowCopy = [...rows];
     let newRows = [];
     // console.log("Finished editing:", { rowCopy });
+    // calculating total
+    // TODO: make total not editable
     for (let i = 0; i < rowCopy.length; i++) {
       let newObj = { ...rowCopy[i] };
       let total = _.reduce(
@@ -131,51 +145,78 @@ export default function Roster(props) {
       );
       //   console.log(total);
       newObj.total = total;
-      axios({
-        method: "post",
-        url:
-          "https://Laravel-awmills25552543.codeanyapp.com/api/v1/lineup/edit",
-        data: newObj,
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Headers": "Content-Type",
-          "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
-          "Access-Control-Allow-Credentials": true,
-          Authorization: `Bearer ${props.token}`,
-        },
-      });
+
       newRows.push(newObj);
     }
     if (!_.isEqual(newRows, rows)) {
+      console.log(newRows);
+      for (let i = 0; i < newRows.length; i++) {
+        // const data = _.map(newRows[i], (row) => {
+        //   row.toggle = toggleState[row.active.props.athleteID];
+        //   //   console.log(row);
+        // });
+        const data = { ...newRows[i] };
+        delete data.active;
+        saveToDB(data);
+      }
+
       setRows(newRows);
     }
-
-    // axios({
-    //   method: "post",
-    //   url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/lineup/edit",
-    //   headers: {
-    //     Accept: "application/json",
-    //     "Content-Type": "application/json",
-    //     "Access-Control-Allow-Origin": "*",
-    //     "Access-Control-Allow-Headers": "Content-Type",
-    //     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
-    //     "Access-Control-Allow-Credentials": true,
-    //     Authorization: `Bearer ${props.token}`,
-    //   },
-    //   data: {
-    //     //lineup data
-    //     //athlete data
-    //     //week data
-    //   },
-    // }).then(function (response) {
-    //   //   setRows(response.data);
-    // });
   }, [rows]);
+
+  useEffect(() => {
+    if (_.size(toggleState) > 0) {
+      let rowsCopy = [...rows];
+      let newRows = [];
+
+      for (let i = 0; i < rowsCopy.length; i++) {
+        let obj = {};
+        _.map(rowsCopy[i], (rowData, key) => {
+          // console.log(rowData, key);
+          if (key === "active") {
+            //   console.log(rowData, toggleState[rowData.props.athleteID]);
+            obj["toggled"] = toggleState[rowData.props.athleteID];
+            rowData = (
+              <Toggle
+                saveToggleState={saveToggleState}
+                toggleState={toggleState[rowData.props.athleteID]}
+                athleteID={rowData.props.athleteID}
+              />
+            );
+          }
+
+          obj[key] = rowData;
+        });
+        // saveToDB(obj);
+        newRows.push(obj);
+      }
+      console.log(newRows);
+      setRows(newRows);
+    }
+  }, [toggleState]);
+
+  const saveToDB = (data) => {
+    axios({
+      method: "post",
+      url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/lineup/edit",
+      data,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+        "Access-Control-Allow-Credentials": true,
+        Authorization: `Bearer ${props.token}`,
+      },
+    }).then((response) => {
+      console.log(response);
+    });
+  };
 
   const [editingStateColumnExtensions] = useState([
     { columnName: "active", editingEnabled: false },
+    { columnName: "total", editingEnabled: false },
   ]);
   const [tableColumnExtensions] = useState([
     { columnName: "active", width: "6%" },
