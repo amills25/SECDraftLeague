@@ -273,8 +273,6 @@ export default function Roster(props) {
   return (
     <>
       <div className="card">
-        {/* {Object.keys(props.userData).length > 0 &&
-          props.userData?.user_memberships[0]?.membership_id === 1 && ( */}
         <Grid rows={rows} columns={columns} getRowId={getRowId}>
           <EditingState
             editingRowIds={editingRowIds}
@@ -290,14 +288,16 @@ export default function Roster(props) {
           <Table columnExtensions={tableColumnExtensions} />
           <TableHeaderRow />
           <TableEditRow />
-          <TableEditColumn
-            //   showAddCommand={!addedRows.length}
+          {Object.keys(props.userData).length > 0 &&
+            props.userData?.user_memberships[0]?.membership_id === 1 && (
+              <TableEditColumn
+                //   showAddCommand={!addedRows.length}
 
-            showEditCommand
-            //   showDeleteCommand
-          />
+                showEditCommand
+                //   showDeleteCommand
+              />
+            )}
         </Grid>
-        {/* )} */}
       </div>
     </>
   );
