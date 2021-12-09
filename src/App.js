@@ -4,8 +4,6 @@ import axios from "axios";
 import MyNavbar from "./Components/MyNavbar";
 import Footer from "./Components/Footer";
 import Home from "../src/Pages/Home";
-// import Roster from "../src/Components/Roster";
-// import Toggle from "../src/Components/Toggle";
 import Lineup from "../src/Pages/Lineup";
 import Standings from "./Pages/Standings";
 import Schedule from "./Pages/Schedule";
@@ -58,11 +56,6 @@ function App() {
   const removeUser = () => {
     setUserData({});
   };
-
-  //   const [active, setActive] = useState(false);
-  //   const isActive = () => {
-  //     setActive(!active);
-  //   };
 
   let [standings, setStandings] = useState([]);
   standings = [

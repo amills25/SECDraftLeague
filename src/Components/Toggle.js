@@ -2,11 +2,6 @@ import React from "react";
 import { useParams } from "react-router-dom";
 
 export default function Toggle(props) {
-  //   const [active, setActive] = useState(false);
-  //   const isActive = () => {
-  //     setActive(!active);
-  //   };
-  //   console.log("TOGGLE INIT:", props.toggleState);
   const { id = 1 } = useParams();
 
   let d = new Date();

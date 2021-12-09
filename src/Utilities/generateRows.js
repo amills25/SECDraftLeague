@@ -1,9 +1,4 @@
-export const generateRows = ({
-  rosterData,
-  columns,
-  currentRoster,
-  component,
-}) => {
+export const generateRows = ({ rosterData, currentRoster, component }) => {
   const memberRosterData = rosterData.find((r) => r.user_id === currentRoster);
   const athleteIDs = [
     ...new Set(memberRosterData.weeks.map((item) => item.athlete_id)),
@@ -20,19 +15,11 @@ export const generateRows = ({
       active: component(athleteID),
     };
 
-    // console.log(athleteData[i].athlete.name);
-
     obj["name"] = athleteData[i].athlete.name;
     obj["team"] = athleteData[i].athlete.team;
-    // to do: initialize from state saved in db
     obj["toggled"] = athleteData[i].athlete.active;
-    // to do: initialize from state saved in db, need to have a week_id for all points
     obj["wkData"] = athleteData;
-    // meed an onject woth week ids as keys, and point values as values
 
-    // console.log(memberRosterData.weeks, athleteData);
-
-    // console.log({ athleteData });
     for (let n = 1; n <= 10; n++) {
       obj[`week${n}`] = athleteData[n - 1]?.points;
     }
@@ -43,6 +30,5 @@ export const generateRows = ({
 
     rows.push(obj);
   }
-  //   console.log({ rows });
   return rows;
 };

@@ -1,12 +1,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
-import {
-  EditingState,
-  SelectionState,
-  TreeDataState,
-  CustomTreeData,
-} from "@devexpress/dx-react-grid";
+import { EditingState } from "@devexpress/dx-react-grid";
 import {
   Grid,
   Table,
@@ -14,7 +8,6 @@ import {
   TableEditRow,
   TableEditColumn,
 } from "@devexpress/dx-react-grid-bootstrap4";
-// import "@devexpress/dx-react-grid-bootstrap4/dist/dx-react-grid-bootstrap4.css";
 import Toggle from "../Components/Toggle";
 import { generateRows } from "../Utilities/generateRows";
 import _ from "lodash";
@@ -92,6 +85,7 @@ export default function Roster(props) {
     } else {
       return [];
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [roster, columns, props.currentRoster]);
 
   const [rows, setRows] = useState([]);
@@ -166,6 +160,7 @@ export default function Roster(props) {
         return newRows;
       });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [toggleState]);
 
   const [editingStateColumnExtensions] = useState([
