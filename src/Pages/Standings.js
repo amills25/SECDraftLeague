@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Table } from "react-bootstrap";
+import StandingsTable from "../Components/StandingsTable";
 
 export default function Standings() {
   return (
@@ -11,7 +12,8 @@ export default function Standings() {
             <hr></hr>
           </Col>
         </Row>
-        <Row className="justify-content-center">
+        <StandingsTable />
+        {/* <Row className="justify-content-center">
           <Col className="col-6">
             <Table striped bordered hover size="sm">
               <thead>
@@ -55,7 +57,7 @@ export default function Standings() {
               </tbody>
             </Table>
           </Col>
-        </Row>
+        </Row> */}
       </Container>
     </>
   );

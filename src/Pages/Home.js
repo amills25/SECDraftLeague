@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Container, Row, Col, Image, ListGroup, Button } from "react-bootstrap";
+import StandingsTable from "../Components/StandingsTable";
 
 export default function Home(props) {
   const [blogPost, setBlogPost] = useState([]);
@@ -63,13 +64,18 @@ export default function Home(props) {
       <Container>
         <Row>
           <Col className="myBorder col-3 border-5 rounded-3 bg-white">
-            <ListGroup as="ol" numbered variant="flush">
+            {/* <ListGroup as="ol" numbered variant="flush">
               <div className="fw-bold text-center">
                 <h5>
                   <u>Current Standings:</u>
                 </h5>
               </div>
-              {/* array of objects with team name and their points total */}
+               array of objects with team name and their points total
+              {Array.from({ length: 6 }).map((_, index) => (
+                <ListGroup.Item as="li" key={index}>
+                  lineup.name -- lineup.total
+                </ListGroup.Item>
+              ))}
               <ListGroup.Item as="li">
                 lineup.name -- lineup.total
               </ListGroup.Item>
@@ -88,7 +94,13 @@ export default function Home(props) {
               <ListGroup.Item as="li">
                 lineup.name -- lineup.total
               </ListGroup.Item>
-            </ListGroup>
+            </ListGroup> */}
+            <div className="fw-bold text-center">
+              <h5>
+                <u>Current Standings:</u>
+              </h5>
+            </div>
+            <StandingsTable />
           </Col>
           <Col className="col-6 text-center">
             <Image className="logo" src="../img/SECDraftLeagueLogo.png" fluid />

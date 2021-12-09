@@ -64,6 +64,20 @@ function App() {
   //     setActive(!active);
   //   };
 
+  //   let [standings, setStandings] = useState([]);
+  //   standings = [
+  //     { name: "Mike Mills", points: 0 },
+  //     { name: "Andrew Mills", points: 0 },
+  //     { name: "Joel Storrow", points: 0 },
+  //     { name: "Dylan Prezkop", points: 0 },
+  //     { name: "Clark Spencer", points: 0 },
+  //     { name: "Team Zimmer", points: 0 },
+  //   ];
+
+  //   const arrangeStandings = () => {
+  //     setStandings(standings.sort((a, b) => (a.color > b.color ? 1 : -1)));
+  //   };
+
   console.log(userData);
   return (
     <>
@@ -81,7 +95,14 @@ function App() {
               <Lineup token={token} saveToken={saveToken} userData={userData} />
             }
           />
-          <Route path="/standings" element={<Standings />} />
+          <Route
+            path="/standings"
+            element={
+              <Standings
+              // arrangeStandings={arrangeStandings}
+              />
+            }
+          />
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/history" element={<History />} />
           <Route path="/rules" element={<Rules />} />
@@ -98,7 +119,12 @@ function App() {
           <Route
             path="/*"
             element={
-              <Home token={token} saveToken={saveToken} userData={userData} />
+              <Home
+                token={token}
+                saveToken={saveToken}
+                userData={userData}
+                // arrangeStandings={arrangeStandings}
+              />
             }
           />
         </Routes>

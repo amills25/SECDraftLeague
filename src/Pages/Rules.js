@@ -72,7 +72,7 @@ export default function Rules() {
               allowed in the tourney week. .
             </p>
             <p>
-              Scoring only but a new rule to allow teams to exchange a player
+              Scoring only, but a new rule to allow teams to exchange a player
               for any undrafted player at the end of weeks 3, and 6. This
               supplemental draft will go in reverse order of the standings at
               weeks 3, and 6. Only one supplemental pick per team in each of the

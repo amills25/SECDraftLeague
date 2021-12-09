@@ -82,7 +82,7 @@ export default function Roster(props) {
   let weekNum = 0;
   for (let index = 0; index < 100; index++) {
     weekNum = (index % 10) + 1;
-    console.log(weekNum);
+    // console.log(weekNum);
   }
   const generatedRows = useMemo(() => {
     if (roster.length > 0) {
@@ -203,12 +203,13 @@ export default function Roster(props) {
         // saveToDB(obj);
         newRows.push(obj);
       }
-      console.log(newRows);
+      //   console.log(newRows);
       setRows(newRows);
     }
   }, [toggleState]);
 
   const saveToDB = (data) => {
+    console.log(data);
     axios({
       method: "post",
       url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/lineup/edit",
@@ -225,9 +226,13 @@ export default function Roster(props) {
         "Access-Control-Allow-Credentials": true,
         Authorization: `Bearer ${props.token}`,
       },
-    }).then((response) => {
-      console.log(response);
-    });
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   const [editingStateColumnExtensions] = useState([
