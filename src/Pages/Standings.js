@@ -1,8 +1,9 @@
 import React from "react";
 import { Container, Row, Col, Table } from "react-bootstrap";
 import StandingsTable from "../Components/StandingsTable";
+// import App from "../Components/App";
 
-export default function Standings() {
+export default function Standings(props) {
   return (
     <>
       <Container className="text-center">
@@ -12,7 +13,7 @@ export default function Standings() {
             <hr></hr>
           </Col>
         </Row>
-        <StandingsTable />
+        <StandingsTable arrangeStandings={props.arrangeStandings} />
         {/* <Row className="justify-content-center">
           <Col className="col-6">
             <Table striped bordered hover size="sm">

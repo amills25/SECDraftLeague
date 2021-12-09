@@ -131,7 +131,34 @@ export default function Roster(props) {
   //   });
   //   console.log(exampleRows);
 
-  // useEffect( saveToDB, [rows])
+  //   console.log(props.userData.id);
+  const saveToDB = (data) => {
+    console.log(props.currentRoster);
+    axios({
+      method: "post",
+      url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/lineup/edit",
+      data: {
+        rows: data,
+        // lineup_id: props.userData.id,
+        lineup_id: props.currentRoster,
+      },
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Content-Type",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+        "Access-Control-Allow-Credentials": true,
+        Authorization: `Bearer ${props.token}`,
+      },
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   // save button on row, triggers updating the row in state and then saves to db
   useEffect(() => {
@@ -164,18 +191,22 @@ export default function Roster(props) {
       console.log(newRows);
 
       for (let i = 0; i < newRows.length; i++) {
+        for (let j = 0; j < newRows[i].wkData.length; j++) {
+          console.log("setting points:", newRows[i][`week${j + 1}`]);
+          newRows[i].wkData[j].points = newRows[i][`week${j + 1}`];
+        }
         // const data = _.map(newRows[i], (row) => {
         //   row.toggle = toggleState[row.active.props.athleteID];
         //   //   console.log(row);
         // });
-        const data = { ...newRows[i] };
+        //const data = { ...newRows[i] };
         // delete data.active;
         //savetoDB(data); --justin change
       }
       saveToDB(newRows); //--justin change
       setRows(newRows);
     }
-  }, [rows]);
+  }, [rows, toggleState]);
 
   useEffect(() => {
     if (_.size(toggleState) > 0) {
@@ -207,33 +238,6 @@ export default function Roster(props) {
       setRows(newRows);
     }
   }, [toggleState]);
-
-  const saveToDB = (data) => {
-    console.log(data);
-    axios({
-      method: "post",
-      url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/lineup/edit",
-      data: {
-        rows: data,
-        lineup_id: props.userData.id,
-      },
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
-        "Access-Control-Allow-Credentials": true,
-        Authorization: `Bearer ${props.token}`,
-      },
-    })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.error(error);
-      });
-  };
 
   const [editingStateColumnExtensions] = useState([
     { columnName: "active", editingEnabled: false },

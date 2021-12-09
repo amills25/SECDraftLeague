@@ -64,19 +64,19 @@ function App() {
   //     setActive(!active);
   //   };
 
-  //   let [standings, setStandings] = useState([]);
-  //   standings = [
-  //     { name: "Mike Mills", points: 0 },
-  //     { name: "Andrew Mills", points: 0 },
-  //     { name: "Joel Storrow", points: 0 },
-  //     { name: "Dylan Prezkop", points: 0 },
-  //     { name: "Clark Spencer", points: 0 },
-  //     { name: "Team Zimmer", points: 0 },
-  //   ];
+  let [standings, setStandings] = useState([]);
+  standings = [
+    { name: "Mike Mills", points: 0 },
+    { name: "Andrew Mills", points: 0 },
+    { name: "Joel Storrow", points: 0 },
+    { name: "Dylan Prezkop", points: 0 },
+    { name: "Clark Spencer", points: 0 },
+    { name: "Team Zimmer", points: 0 },
+  ];
 
-  //   const arrangeStandings = () => {
-  //     setStandings(standings.sort((a, b) => (a.color > b.color ? 1 : -1)));
-  //   };
+  const arrangeStandings = () => {
+    setStandings(standings.sort((a, b) => (a.color > b.color ? 1 : -1)));
+  };
 
   console.log(userData);
   return (
@@ -97,11 +97,7 @@ function App() {
           />
           <Route
             path="/standings"
-            element={
-              <Standings
-              // arrangeStandings={arrangeStandings}
-              />
-            }
+            element={<Standings arrangeStandings={arrangeStandings} />}
           />
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/history" element={<History />} />

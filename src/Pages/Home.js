@@ -63,62 +63,8 @@ export default function Home(props) {
       <br></br>
       <Container>
         <Row>
-          <Col className="myBorder col-3 border-5 rounded-3 bg-white">
-            {/* <ListGroup as="ol" numbered variant="flush">
-              <div className="fw-bold text-center">
-                <h5>
-                  <u>Current Standings:</u>
-                </h5>
-              </div>
-               array of objects with team name and their points total
-              {Array.from({ length: 6 }).map((_, index) => (
-                <ListGroup.Item as="li" key={index}>
-                  lineup.name -- lineup.total
-                </ListGroup.Item>
-              ))}
-              <ListGroup.Item as="li">
-                lineup.name -- lineup.total
-              </ListGroup.Item>
-              <ListGroup.Item as="li">
-                lineup.name -- lineup.total
-              </ListGroup.Item>
-              <ListGroup.Item as="li">
-                lineup.name -- lineup.total
-              </ListGroup.Item>
-              <ListGroup.Item as="li">
-                lineup.name -- lineup.total
-              </ListGroup.Item>
-              <ListGroup.Item as="li">
-                lineup.name -- lineup.total
-              </ListGroup.Item>
-              <ListGroup.Item as="li">
-                lineup.name -- lineup.total
-              </ListGroup.Item>
-            </ListGroup> */}
-            <div className="fw-bold text-center">
-              <h5>
-                <u>Current Standings:</u>
-              </h5>
-            </div>
-            <StandingsTable />
-          </Col>
-          <Col className="col-6 text-center">
+          <Col className="col text-center">
             <Image className="logo" src="../img/SECDraftLeagueLogo.png" fluid />
-          </Col>
-          <Col className="myBorder col-3 border-5 rounded-3 bg-white">
-            <ListGroup numbered variant="flush">
-              <div className="fw-bold text-center">
-                <h5>
-                  <u>Recent Champions:</u>
-                </h5>
-              </div>
-              <ListGroup.Item>2021: Andrew Mills</ListGroup.Item>
-              <ListGroup.Item>2020: Andrew Mills</ListGroup.Item>
-              <ListGroup.Item>2019: Joel Storrow</ListGroup.Item>
-              <ListGroup.Item>2018: Mike Mills</ListGroup.Item>
-              <ListGroup.Item>2017: Team Zimmer</ListGroup.Item>
-              <ListGroup.Item>2016: Mike Mills</ListGroup.Item>
-            </ListGroup>
           </Col>
         </Row>
       </Container>

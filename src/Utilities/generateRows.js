@@ -19,13 +19,18 @@ export const generateRows = ({
       id: i,
       active: component(athleteID),
     };
+
+    // console.log(athleteData[i].athlete.name);
+
     obj["name"] = athleteData[i].athlete.name;
     obj["team"] = athleteData[i].athlete.team;
     // to do: initialize from state saved in db
     obj["toggled"] = athleteData[i].athlete.active;
     // to do: initialize from state saved in db, need to have a week_id for all points
-    obj["wk_id"] = athleteData[i].week_number;
-    console.log(athleteData[i]);
+    obj["wkData"] = athleteData;
+    // meed an onject woth week ids as keys, and point values as values
+
+    // console.log(memberRosterData.weeks, athleteData);
 
     // console.log({ athleteData });
     for (let n = 1; n <= 10; n++) {

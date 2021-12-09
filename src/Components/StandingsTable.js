@@ -1,13 +1,14 @@
 import React from "react";
 import { Container, Row, Col, Table } from "react-bootstrap";
+import Standings from "../Pages/Standings";
 
-export default function StandingsTable() {
+export default function StandingsTable(props) {
   //map over arranged standings array
   return (
     <>
       <Container>
         <Row className="justify-content-center">
-          <Col>
+          <Col className="col-6">
             <Table striped bordered hover responsive>
               <thead>
                 <tr>
