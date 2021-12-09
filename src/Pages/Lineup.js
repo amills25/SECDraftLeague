@@ -49,7 +49,7 @@ export default function Lineup(props) {
                   id="dropdown-basic"
                   value={members[currentRoster]}
                 >
-                  {/* //TODO: props.roster.name */}
+                  {/* //TO DO: props.roster.name */}
                   {members[currentRoster - 1]}
                 </Dropdown.Toggle>
 

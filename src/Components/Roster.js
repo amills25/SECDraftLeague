@@ -79,6 +79,11 @@ export default function Roster(props) {
     { name: "total", title: "Total" },
   ]);
 
+  let weekNum = 0;
+  for (let index = 0; index < 100; index++) {
+    weekNum = (index % 10) + 1;
+    console.log(weekNum);
+  }
   const generatedRows = useMemo(() => {
     if (roster.length > 0) {
       return generateRows({
@@ -95,14 +100,16 @@ export default function Roster(props) {
             athleteID={athleteID}
             userData={props.userData}
           />
-          //TO DO: figure out how to save week_id for all 10 weeks for every player with another if like above
         ),
+        //TO DO: figure out how to save wk_id for all 10 weeks for every player with another if like above
+        wk_id: weekNum,
         //   ),
       });
     } else {
       return [];
     }
   }, [roster, columns, props.currentRoster]);
+  //   console.log(roster[props.currentRoster].weeks);
 
   const [rows, setRows] = useState([]);
 
@@ -279,7 +286,7 @@ export default function Roster(props) {
     setRows(changedRows);
   };
 
-  console.log(props.userData.length);
+  //   console.log(props.userData.length);
   return (
     <>
       <div className="card">
