@@ -13,31 +13,21 @@ import {
   TableHeaderRow,
   TableEditRow,
   TableEditColumn,
-  TableTreeColumn,
 } from "@devexpress/dx-react-grid-bootstrap4";
 // import "@devexpress/dx-react-grid-bootstrap4/dist/dx-react-grid-bootstrap4.css";
 import Toggle from "../Components/Toggle";
-import {
-  generateSum,
-  generateRows as exampleGenerateRows,
-} from "../data/generator";
 import { generateRows } from "../Utilities/generateRows";
 import _ from "lodash";
 
 const getRowId = (row) => row.id;
 
 export default function Roster(props) {
-  let d = new Date();
-  let day = d.getDay();
-
-  const { id = 1 } = useParams();
-
   const [toggleState, setToggleState] = useState({});
   const saveToggleState = (athleteID) => {
     setToggleState((prevState) => {
       let newState = { ...prevState };
       newState[athleteID] = !newState[athleteID];
-      console.log({ athleteID, newState });
+      //   console.log({ athleteID, newState });
       return newState;
     });
   };
@@ -82,7 +72,6 @@ export default function Roster(props) {
   let weekNum = 0;
   for (let index = 0; index < 100; index++) {
     weekNum = (index % 10) + 1;
-    // console.log(weekNum);
   }
   const generatedRows = useMemo(() => {
     if (roster.length > 0) {
@@ -91,9 +80,6 @@ export default function Roster(props) {
         columns,
         currentRoster: props.currentRoster,
         component: (athleteID) => (
-          //   props.userData.length > 0 &&
-          //   (props.userData?.user_memberships[0].membership_id === 1 ||
-          //     props.userData?.user_memberships[0].id === parseInt(id)) && (
           <Toggle
             saveToggleState={saveToggleState}
             toggleState={toggleState[athleteID]}
@@ -101,15 +87,12 @@ export default function Roster(props) {
             userData={props.userData}
           />
         ),
-        //TO DO: figure out how to save wk_id for all 10 weeks for every player with another if like above
         wk_id: weekNum,
-        //   ),
       });
     } else {
       return [];
     }
   }, [roster, columns, props.currentRoster]);
-  //   console.log(roster[props.currentRoster].weeks);
 
   const [rows, setRows] = useState([]);
 
@@ -125,21 +108,13 @@ export default function Roster(props) {
     }
   }, [generatedRows]);
 
-  //   const exampleRows = exampleGenerateRows({
-  //     columnValues: { id: ({ index }) => index, ...columnValues },
-  //     length: 9,
-  //   });
-  //   console.log(exampleRows);
-
   //   console.log(props.userData.id);
   const saveToDB = (data) => {
-    console.log(props.currentRoster);
     axios({
       method: "post",
       url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/lineup/edit",
       data: {
         rows: data,
-        // lineup_id: props.userData.id,
         lineup_id: props.currentRoster,
       },
       headers: {
@@ -160,54 +135,6 @@ export default function Roster(props) {
       });
   };
 
-  // save button on row, triggers updating the row in state and then saves to db
-  useEffect(() => {
-    let rowCopy = [...rows];
-    let newRows = [];
-    // console.log("Finished editing:", { rowCopy });
-    // calculating total
-    for (let i = 0; i < rowCopy.length; i++) {
-      let newObj = { ...rowCopy[i] };
-      let total = _.reduce(
-        newObj,
-        (result, value, key) => {
-          //   console.log(result, value, key);
-          let resultInt = parseInt(result);
-          let valueInt = parseInt(value);
-          if (key.includes("week")) {
-            // console.log(key);
-            return resultInt + valueInt;
-          }
-          return resultInt;
-        },
-        0
-      );
-      //   console.log(total);
-      newObj.total = total;
-
-      newRows.push(newObj);
-    }
-    if (!_.isEqual(newRows, rows)) {
-      console.log(newRows);
-
-      for (let i = 0; i < newRows.length; i++) {
-        for (let j = 0; j < newRows[i].wkData.length; j++) {
-          console.log("setting points:", newRows[i][`week${j + 1}`]);
-          newRows[i].wkData[j].points = newRows[i][`week${j + 1}`];
-        }
-        // const data = _.map(newRows[i], (row) => {
-        //   row.toggle = toggleState[row.active.props.athleteID];
-        //   //   console.log(row);
-        // });
-        //const data = { ...newRows[i] };
-        // delete data.active;
-        //savetoDB(data); --justin change
-      }
-      saveToDB(newRows); //--justin change
-      setRows(newRows);
-    }
-  }, [rows, toggleState]);
-
   useEffect(() => {
     if (_.size(toggleState) > 0) {
       let rowsCopy = [...rows];
@@ -219,7 +146,7 @@ export default function Roster(props) {
           // console.log(rowData, key);
           if (key === "active") {
             //   console.log(rowData, toggleState[rowData.props.athleteID]);
-            obj["toggled"] = toggleState[rowData.props.athleteID];
+            obj["toggled"] = toggleState[rowData.props.athleteID] ? 1 : 0;
             rowData = (
               <Toggle
                 saveToggleState={saveToggleState}
@@ -231,11 +158,13 @@ export default function Roster(props) {
           }
           obj[key] = rowData;
         });
-        // saveToDB(obj);
         newRows.push(obj);
       }
       //   console.log(newRows);
-      setRows(newRows);
+      setRows(() => {
+        saveToDB(newRows);
+        return newRows;
+      });
     }
   }, [toggleState]);
 
@@ -295,7 +224,49 @@ export default function Roster(props) {
     setRows(changedRows);
   };
 
-  //   console.log(props.userData.length);
+  // save button on row, triggers updating the row in state and then saves to db
+  useEffect(() => {
+    let rowCopy = [...rows];
+    let newRows = [];
+    // calculating total
+    for (let i = 0; i < rowCopy.length; i++) {
+      let newObj = { ...rowCopy[i] };
+      let total = _.reduce(
+        newObj,
+        (result, value, key) => {
+          let resultInt = parseInt(result);
+          let valueInt = parseInt(value);
+          if (key.includes("week")) {
+            return resultInt + valueInt;
+          }
+          return resultInt;
+        },
+        0
+      );
+      newObj.total = total;
+
+      newRows.push(newObj);
+    }
+    // console.log("trying to update rows", !_.isEqual(newRows, rows), {
+    //   newRows,
+    //   rows,
+    // });
+
+    if (!_.isEqual(newRows, rows)) {
+      //   console.log(newRows);
+
+      for (let i = 0; i < newRows.length; i++) {
+        for (let j = 0; j < newRows[i].wkData.length; j++) {
+          //   console.log("setting points:", newRows[i][`week${j + 1}`]);
+          newRows[i].wkData[j].points = newRows[i][`week${j + 1}`];
+        }
+      }
+      saveToDB(newRows);
+      setRows(newRows);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [rows]);
+
   return (
     <>
       <div className="card">
