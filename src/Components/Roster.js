@@ -312,5 +312,3 @@ export default function Roster(props) {
     </>
   );
 }
-
-//need to make active button appear if commissioner, current logged in user, and it's sunday-tuesday

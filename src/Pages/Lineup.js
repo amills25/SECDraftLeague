@@ -9,7 +9,7 @@ export default function Lineup(props) {
 
   let sum = "sum of points total";
 
-  const { id = 1 } = useParams();
+  const { id } = useParams();
   let members = [
     "Mike Mills",
     "Andrew Mills",
@@ -25,6 +25,15 @@ export default function Lineup(props) {
   const lockButtons = () => {
     setLineup(true);
   };
+
+  //   console.log(rosters, id);
+  //   const currentRoster = rosters.find((roster) => roster.id === parseInt(id));
+  //   let sum = 0;
+  //   if (currentRoster) {
+  //     sum = currentRoster.weeks.reduce((acc, current) => {
+  //       return (acc += current.points);
+  //     }, 0);
+  //   }
 
   return (
     <>
