@@ -60,7 +60,6 @@ export default function Home(props) {
   return (
     <>
       <br></br>
-      <br></br>
       <Container>
         <Row>
           <Col className="col text-center">

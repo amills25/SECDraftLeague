@@ -2,13 +2,16 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Container, Row, Col, Dropdown, Button } from "react-bootstrap";
 import Roster from "../Components/Roster";
+import {useData} from "../Utilities/DataContext";
 
 export default function Lineup(props) {
+  const { data, setCurrentRoster } = useData();
+  
   let d = new Date();
   let day = d.getDay();
-
+  
   let sum = "sum of points total";
-
+  
   const { id } = useParams();
   let members = [
     "Mike Mills",
@@ -18,8 +21,14 @@ export default function Lineup(props) {
     "Clark Spencer",
     "Team Zimmer",
   ];
-
+  
   let currentRoster = parseInt(id);
+  useEffect( () => {
+    setCurrentRoster(parseInt(id));
+  }, [id])
+
+  const team = data.find((d) => d.id === currentRoster);
+console.log(team);
 
   let [lineup, setLineup] = useState(false);
   const lockButtons = () => {
@@ -76,7 +85,7 @@ export default function Lineup(props) {
             </Row>
           </Col>
           <Col className="col-6">
-            <h2>Total Points: {sum}</h2>
+            <h2>Total Points: {team?.points}</h2>
           </Col>
         </Row>
         <br></br>
@@ -86,7 +95,6 @@ export default function Lineup(props) {
           <Col>
             <Row>
               <Roster
-                currentRoster={currentRoster}
                 token={props.token}
                 userData={props.userData}
               />
