@@ -20,7 +20,6 @@ export default function Roster(props) {
     setToggleState((prevState) => {
       let newState = { ...prevState };
       newState[athleteID] = !newState[athleteID];
-      //   console.log({ athleteID, newState });
       return newState;
     });
   };
@@ -102,7 +101,6 @@ export default function Roster(props) {
     }
   }, [generatedRows]);
 
-  //   console.log(props.userData.id);
   const saveToDB = (data) => {
     axios({
       method: "post",
@@ -137,9 +135,7 @@ export default function Roster(props) {
       for (let i = 0; i < rowsCopy.length; i++) {
         let obj = {};
         _.map(rowsCopy[i], (rowData, key) => {
-          // console.log(rowData, key);
           if (key === "active") {
-            //   console.log(rowData, toggleState[rowData.props.athleteID]);
             obj["toggled"] = toggleState[rowData.props.athleteID] ? 1 : 0;
             rowData = (
               <Toggle
@@ -154,7 +150,6 @@ export default function Roster(props) {
         });
         newRows.push(obj);
       }
-      //   console.log(newRows);
       setRows(() => {
         saveToDB(newRows);
         return newRows;
@@ -242,17 +237,10 @@ export default function Roster(props) {
 
       newRows.push(newObj);
     }
-    // console.log("trying to update rows", !_.isEqual(newRows, rows), {
-    //   newRows,
-    //   rows,
-    // });
 
     if (!_.isEqual(newRows, rows)) {
-      //   console.log(newRows);
-
       for (let i = 0; i < newRows.length; i++) {
         for (let j = 0; j < newRows[i].wkData.length; j++) {
-          //   console.log("setting points:", newRows[i][`week${j + 1}`]);
           newRows[i].wkData[j].points = newRows[i][`week${j + 1}`];
         }
       }
@@ -284,7 +272,6 @@ export default function Roster(props) {
             props.userData?.user_memberships[0]?.membership_id === 1 && (
               <TableEditColumn
                 //   showAddCommand={!addedRows.length}
-
                 showEditCommand
                 //   showDeleteCommand
               />

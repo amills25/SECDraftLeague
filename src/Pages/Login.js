@@ -16,7 +16,7 @@ export default function Login(props) {
         password: login.password,
         grant_type: "password",
         client_id: 2,
-        client_secret: "L09r7qGpukWnI9cQ5G1e4J2UFBAa6E6w2JgZVZeC",
+        client_secret: "Vzp5VKKgADHZS3a6BCQ2iLXC4agtDNnlpZ8i08cv",
         scope: "",
       },
       headers: {
