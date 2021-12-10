@@ -26,7 +26,6 @@ export default function Lineup(props) {
     setLineup(true);
   };
 
-  //   console.log(rosters, id);
   //   const currentRoster = rosters.find((roster) => roster.id === parseInt(id));
   //   let sum = 0;
   //   if (currentRoster) {

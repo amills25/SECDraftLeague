@@ -76,7 +76,6 @@ function App() {
     setStandings(standings.sort((a, b) => (a.color > b.color ? 1 : -1)));
   };
 
-  console.log(userData);
   return (
     <DataContext.Provider>
       <>

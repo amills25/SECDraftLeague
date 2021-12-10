@@ -12,7 +12,6 @@ export function axiosHelper(props) {
   } = props; // setting default prop values
 
   const finalData = JSON.parse(JSON.stringify(data));
-  // console.log({ url, finalData })
 
   return axios({
     method,
