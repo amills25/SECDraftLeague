@@ -11,6 +11,7 @@ import History from "../src/Pages/History";
 import Rules from "../src/Pages/Rules";
 import NewUser from "../src/Pages/NewUser";
 import Login from "../src/Pages/Login";
+import DataContext from "./Utilities/DataContext";
 
 function App() {
   const [token, setToken] = useState("");
@@ -73,53 +74,63 @@ function App() {
 
   console.log(userData);
   return (
-    <>
-      <MyNavbar
-        removeToken={removeToken}
-        removeUser={removeUser}
-        token={token}
-        userData={userData}
-      />
-      <main>
-        <Routes>
-          <Route
-            path="/lineup/:id"
-            element={
-              <Lineup token={token} saveToken={saveToken} userData={userData} />
-            }
-          />
-          <Route
-            path="/standings"
-            element={<Standings arrangeStandings={arrangeStandings} />}
-          />
-          <Route path="/schedule" element={<Schedule />} />
-          <Route path="/history" element={<History />} />
-          <Route path="/rules" element={<Rules />} />
-          <Route
-            path="/newuser"
-            element={<NewUser token={token} saveToken={saveToken} />}
-          />
-          <Route
-            path="/login"
-            element={
-              <Login token={token} saveToken={saveToken} userData={userData} />
-            }
-          />
-          <Route
-            path="/*"
-            element={
-              <Home
-                token={token}
-                saveToken={saveToken}
-                userData={userData}
-                // arrangeStandings={arrangeStandings}
-              />
-            }
-          />
-        </Routes>
-      </main>
-      <Footer />
-    </>
+    <DataContext.Provider>
+      <>
+        <MyNavbar
+          removeToken={removeToken}
+          removeUser={removeUser}
+          token={token}
+          userData={userData}
+        />
+        <main>
+          <Routes>
+            <Route
+              path="/lineup/:id"
+              element={
+                <Lineup
+                  token={token}
+                  saveToken={saveToken}
+                  userData={userData}
+                />
+              }
+            />
+            <Route
+              path="/standings"
+              element={<Standings arrangeStandings={arrangeStandings} />}
+            />
+            <Route path="/schedule" element={<Schedule />} />
+            <Route path="/history" element={<History />} />
+            <Route path="/rules" element={<Rules />} />
+            <Route
+              path="/newuser"
+              element={<NewUser token={token} saveToken={saveToken} />}
+            />
+            <Route
+              path="/login"
+              element={
+                <Login
+                  token={token}
+                  saveToken={saveToken}
+                  userData={userData}
+                />
+              }
+            />
+            <Route
+              path="/*"
+              element={
+                <Home
+                  token={token}
+                  saveToken={saveToken}
+                  userData={userData}
+                  // arrangeStandings={arrangeStandings}
+                />
+              }
+            />
+          </Routes>
+        </main>
+        <Footer />
+      </>
+    </DataContext.Provider>
   );
 }
 
