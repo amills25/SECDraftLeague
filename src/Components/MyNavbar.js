@@ -19,7 +19,10 @@ export default function MyNavbar(props) {
         props.removeToken();
         props.removeUser();
       })
-      .catch(function (error) {});
+      .catch(function (error) {
+        props.removeToken();
+        props.removeUser();
+      });
   };
   return (
     <Navbar className="myNav">
@@ -79,14 +82,6 @@ export default function MyNavbar(props) {
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end fw-bold">
           <Nav>
-            {/* <Nav.Link
-              activeClassName={"active"}
-              as={NavLink}
-              to="/newuser"
-              className="ml-auto"
-            >
-              New User
-            </Nav.Link> */}
             {props.token.length > 0 ? (
               <Nav.Link as={Link} to="/home" onClick={logOut}>
                 Logout

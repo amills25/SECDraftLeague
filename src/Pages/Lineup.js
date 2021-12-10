@@ -84,16 +84,6 @@ export default function Lineup(props) {
       </Container>
       <Container>
         <Row>
-          {/* <Col className="col-1">
-            {Object.keys(props.userData).length > 0 &&
-              (props.userData?.user_memberships[0].membership_id === 1 ||
-                (props.userData?.user_memberships[0].id === parseInt(id) &&
-                  (day === 0 || day === 1 || day === 2))) &&
-              Array.from({ length: 9 }).map((_, index) => (
-                <Row>
-                </Row>
-              ))}
-          </Col> */}
           <Col>
             <Row>
               <Roster
@@ -104,22 +94,6 @@ export default function Lineup(props) {
             </Row>
           </Col>
         </Row>
-        <br></br>
-        {/* <Row className="justify-content-center">
-          <Col className="col-2">
-            {Object.keys(props.userData).length > 0 &&
-              (props.userData?.user_memberships[0].membership_id === 1 ||
-                props.userData?.user_memberships[0].id === parseInt(id)) && (
-                <Button
-                  variant="warning"
-                  size="lg"
-                  onClick={() => lockButtons()}
-                >
-                  Submit Lineup
-                </Button>
-              )}
-          </Col>
-        </Row> */}
       </Container>
     </>
   );
