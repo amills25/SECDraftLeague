@@ -15,8 +15,8 @@ export default function Login(props) {
         username: login.email,
         password: login.password,
         grant_type: "password",
-        client_id: 4,
-        client_secret: "tGpnkcNG2vaM4agcQWmLuPlhhqUhJl3Y0FajcREo",
+        client_id: 2,
+        client_secret: "L09r7qGpukWnI9cQ5G1e4J2UFBAa6E6w2JgZVZeC",
         scope: "",
       },
       headers: {
@@ -77,6 +77,15 @@ export default function Login(props) {
               <Button variant="outline-dark" type="submit">
                 Submit
               </Button>
+              {/* <br></br>
+              <br></br>
+              <Button
+                variant="outline-dark"
+                type="button"
+                // onClick={resetPassword}
+              >
+                Reset Password
+              </Button> */}
               {/* <br></br>
               <br></br>
               <Button variant="outline-dark" type="submit">
