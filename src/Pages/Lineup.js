@@ -2,12 +2,10 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Container, Row, Col, Dropdown, Button } from "react-bootstrap";
 import Roster from "../Components/Roster";
+import {useData} from "../Utilities/DataContext";
 
 export default function Lineup(props) {
-  let d = new Date();
-  let day = d.getDay();
-
-  let sum = "sum of points total";
+  const { data } = useData();
 
   const { id } = useParams();
   let members = [
@@ -21,18 +19,12 @@ export default function Lineup(props) {
 
   let currentRoster = parseInt(id);
 
-  let [lineup, setLineup] = useState(false);
-  const lockButtons = () => {
-    setLineup(true);
-  };
+  const team = data.find((d) => d.id === currentRoster);
 
-  //   const currentRoster = rosters.find((roster) => roster.id === parseInt(id));
-  //   let sum = 0;
-  //   if (currentRoster) {
-  //     sum = currentRoster.weeks.reduce((acc, current) => {
-  //       return (acc += current.points);
-  //     }, 0);
-  //   }
+  setTimeout(function(){
+    //setCurrentRoster()
+    //when api data loads on useeffect loop over all the users from DataContext & change the correct roster to be the user if & wait until the data loads
+},3000);
 
   return (
     <>
@@ -76,7 +68,7 @@ export default function Lineup(props) {
             </Row>
           </Col>
           <Col className="col-6">
-            <h2>Total Points: {sum}</h2>
+            <h2>Total Points: {team?.points}</h2>
           </Col>
         </Row>
         <br></br>

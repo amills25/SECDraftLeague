@@ -11,10 +11,13 @@ import {
 import Toggle from "../Components/Toggle";
 import { generateRows } from "../Utilities/generateRows";
 import _ from "lodash";
+import { useData } from "../Utilities/DataContext";
 
 const getRowId = (row) => row.id;
 
 export default function Roster(props) {
+  const { savePointData } = useData();
+
   const [toggleState, setToggleState] = useState({});
   const saveToggleState = (athleteID) => {
     setToggleState((prevState) => {
@@ -219,6 +222,7 @@ export default function Roster(props) {
     let rowCopy = [...rows];
     let newRows = [];
     // calculating total
+    let grandTotal = 0;
     for (let i = 0; i < rowCopy.length; i++) {
       let newObj = { ...rowCopy[i] };
       let total = _.reduce(
@@ -234,9 +238,10 @@ export default function Roster(props) {
         0
       );
       newObj.total = total;
-
+      grandTotal += total;
       newRows.push(newObj);
     }
+    savePointData(grandTotal, props.currentRoster);
 
     if (!_.isEqual(newRows, rows)) {
       for (let i = 0; i < newRows.length; i++) {

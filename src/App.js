@@ -10,7 +10,7 @@ import Schedule from "./Pages/Schedule";
 import History from "../src/Pages/History";
 import Rules from "../src/Pages/Rules";
 import Login from "../src/Pages/Login";
-import DataContext from "./Utilities/DataContext";
+import { DataProvider } from "./Utilities/DataContext";
 
 function App() {
   const [token, setToken] = useState("");
@@ -77,7 +77,7 @@ function App() {
   };
 
   return (
-    <DataContext.Provider>
+    <DataProvider>
       <>
         <MyNavbar
           removeToken={removeToken}
@@ -129,7 +129,7 @@ function App() {
         </main>
         <Footer />
       </>
-    </DataContext.Provider>
+    </DataProvider>
   );
 }
 
