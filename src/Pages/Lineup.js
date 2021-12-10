@@ -9,9 +9,9 @@ export default function Lineup(props) {
   
   let d = new Date();
   let day = d.getDay();
-  
+
   let sum = "sum of points total";
-  
+
   const { id } = useParams();
   let members = [
     "Mike Mills",
@@ -21,14 +21,10 @@ export default function Lineup(props) {
     "Clark Spencer",
     "Team Zimmer",
   ];
-  
+
   let currentRoster = parseInt(id);
-  useEffect( () => {
-    setCurrentRoster(parseInt(id));
-  }, [id])
 
   const team = data.find((d) => d.id === currentRoster);
-console.log(team);
 
   let [lineup, setLineup] = useState(false);
   const lockButtons = () => {
@@ -95,6 +91,7 @@ console.log(team);
           <Col>
             <Row>
               <Roster
+                currentRoster={currentRoster}
                 token={props.token}
                 userData={props.userData}
               />

@@ -1,13 +1,9 @@
 import React from "react";
 import { Container, Row, Col, Table } from "react-bootstrap";
 import Standings from "../Pages/Standings";
-import { useData } from "../Utilities/DataContext";
 
 export default function StandingsTable(props) {
   //map over arranged standings array
-  const { data, arrangeData } = useData();
-  console.log(data);
-
   return (
     <>
       <Container>
@@ -22,11 +18,11 @@ export default function StandingsTable(props) {
                 </tr>
               </thead>
               <tbody>
-                {arrangeData(data).map((user, index) => (
+                {Array.from({ length: 6 }).map((_, index) => (
                   <tr>
                     <td key={index}>{index + 1}</td>
-                    <td>{user.name}</td>
-                    <td>{user.points}</td>
+                    <td>Member Name</td>
+                    <td>Lineup Points</td>
                   </tr>
                 ))}
               </tbody>

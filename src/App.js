@@ -77,7 +77,7 @@ function App() {
   };
 
   return (
-    <DataProvider token={token} userData={userData}>
+    <DataProvider>
       <>
         <MyNavbar
           removeToken={removeToken}
