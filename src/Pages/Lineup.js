@@ -5,12 +5,7 @@ import Roster from "../Components/Roster";
 import {useData} from "../Utilities/DataContext";
 
 export default function Lineup(props) {
-  const { data, setCurrentRoster } = useData();
-  
-  let d = new Date();
-  let day = d.getDay();
-
-  let sum = "sum of points total";
+  const { data } = useData();
 
   const { id } = useParams();
   let members = [
@@ -26,18 +21,10 @@ export default function Lineup(props) {
 
   const team = data.find((d) => d.id === currentRoster);
 
-  let [lineup, setLineup] = useState(false);
-  const lockButtons = () => {
-    setLineup(true);
-  };
-
-  //   const currentRoster = rosters.find((roster) => roster.id === parseInt(id));
-  //   let sum = 0;
-  //   if (currentRoster) {
-  //     sum = currentRoster.weeks.reduce((acc, current) => {
-  //       return (acc += current.points);
-  //     }, 0);
-  //   }
+  setTimeout(function(){
+    //setCurrentRoster()
+    //when api data loads on useeffect loop over all the users from DataContext & change the correct roster to be the user if & wait until the data loads
+},3000);
 
   return (
     <>
