@@ -1,11 +1,10 @@
 import React from "react";
 import { Container, Row, Col, Table } from "react-bootstrap";
-import Standings from "../Pages/Standings";
 import { useData } from "../Utilities/DataContext";
 
 export default function StandingsTable(props) {
-  //map over arranged standings array
   const { data, arrangeData } = useData();
+  console.log(data);
 
   return (
     <>

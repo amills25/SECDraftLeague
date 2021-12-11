@@ -39,6 +39,7 @@ function App() {
         },
       })
         .then(function (response) {
+          console.log(response);
           setUserData(response.data[0]);
         })
         .catch(function (error) {
@@ -73,7 +74,7 @@ function App() {
   ];
 
   const arrangeStandings = () => {
-    setStandings(standings.sort((a, b) => (a.color > b.color ? 1 : -1)));
+    setStandings(standings.sort((a, b) => (a.points > b.points ? 1 : -1)));
   };
 
   return (
@@ -117,12 +118,7 @@ function App() {
             <Route
               path="/*"
               element={
-                <Home
-                  token={token}
-                  saveToken={saveToken}
-                  userData={userData}
-                  // arrangeStandings={arrangeStandings}
-                />
+                <Home token={token} saveToken={saveToken} userData={userData} />
               }
             />
           </Routes>

@@ -5,7 +5,6 @@ const DataContext = createContext({});
 
 // helper function that exports just the needed / wanted data for the provider
 export const DataHelper = () => {
-  //generateRows exists here
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -23,8 +22,10 @@ export const DataHelper = () => {
       },
     })
       .then(function (response) {
-        console.log(response);
-        const parsedData = response.data.map((d) => ({ ...d, points: 0 }));
+        const parsedData = response.data.map((d) => {
+          const points = d.lineup.weeks.reduce((a, c) => a + c.points, 0);
+          return { ...d, points };
+        });
         setData(parsedData);
       })
       .catch((e) => console.log(e));
@@ -74,7 +75,6 @@ export const DataHelper = () => {
 };
 
 // custom Provider component
-// export const UserProvider = UserContext.Provider
 export const DataProvider = (props) => {
   const initialContext = DataHelper();
 
