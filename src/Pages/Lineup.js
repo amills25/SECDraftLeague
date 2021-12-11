@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { Container, Row, Col, Dropdown, Button } from "react-bootstrap";
 import Roster from "../Components/Roster";
-import {useData} from "../Utilities/DataContext";
+import { useData } from "../Utilities/DataContext";
 
 export default function Lineup(props) {
   const { data } = useData();
@@ -21,10 +21,10 @@ export default function Lineup(props) {
 
   const team = data.find((d) => d.id === currentRoster);
 
-  setTimeout(function(){
-    //setCurrentRoster()
-    //when api data loads on useeffect loop over all the users from DataContext & change the correct roster to be the user if & wait until the data loads
-},3000);
+  //   setTimeout(function(){
+  //     //setCurrentRoster()
+  //     //when api data loads on useeffect loop over all the users from DataContext & change the correct roster to be the user if & wait until the data loads
+  // },3000);
 
   return (
     <>

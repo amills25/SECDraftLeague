@@ -39,6 +39,7 @@ function App() {
         },
       })
         .then(function (response) {
+          console.log(response);
           setUserData(response.data[0]);
         })
         .catch(function (error) {
