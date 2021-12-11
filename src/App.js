@@ -118,12 +118,7 @@ function App() {
             <Route
               path="/*"
               element={
-                <Home
-                  token={token}
-                  saveToken={saveToken}
-                  userData={userData}
-                  // arrangeStandings={arrangeStandings}
-                />
+                <Home token={token} saveToken={saveToken} userData={userData} />
               }
             />
           </Routes>

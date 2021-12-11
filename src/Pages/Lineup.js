@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useParams, Link } from "react-router-dom";
-import { Container, Row, Col, Dropdown, Button } from "react-bootstrap";
+import { Container, Row, Col, Dropdown } from "react-bootstrap";
 import Roster from "../Components/Roster";
 import { useData } from "../Utilities/DataContext";
 
@@ -21,11 +21,6 @@ export default function Lineup(props) {
 
   const team = data.find((d) => d.id === currentRoster);
 
-  //   setTimeout(function(){
-  //     //setCurrentRoster()
-  //     //when api data loads on useeffect loop over all the users from DataContext & change the correct roster to be the user if & wait until the data loads
-  // },3000);
-
   return (
     <>
       <Container>
@@ -40,7 +35,6 @@ export default function Lineup(props) {
                   id="dropdown-basic"
                   value={members[currentRoster]}
                 >
-                  {/* //TO DO: props.roster.name */}
                   {members[currentRoster - 1]}
                 </Dropdown.Toggle>
 

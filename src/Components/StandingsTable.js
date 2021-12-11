@@ -1,6 +1,5 @@
 import React from "react";
 import { Container, Row, Col, Table } from "react-bootstrap";
-import Standings from "../Pages/Standings";
 import { useData } from "../Utilities/DataContext";
 
 export default function StandingsTable(props) {
@@ -25,7 +24,7 @@ export default function StandingsTable(props) {
                   <tr>
                     <td key={index}>{index + 1}</td>
                     <td>{user.name}</td>
-                    <td>{user.lineup.weeks.points}</td>
+                    <td>{user.points}</td>
                   </tr>
                 ))}
               </tbody>

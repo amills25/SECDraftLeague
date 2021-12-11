@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { Container, Row, Col, Image, ListGroup, Button } from "react-bootstrap";
-import StandingsTable from "../Components/StandingsTable";
+import { Container, Row, Col, Image, Button } from "react-bootstrap";
 
 export default function Home(props) {
   const [blogPost, setBlogPost] = useState([]);
@@ -54,8 +53,6 @@ export default function Home(props) {
       return !prevEdit;
     });
   };
-
-  const [standings, setStandings] = useState([{ name: "", points: 0 }]);
 
   return (
     <>
