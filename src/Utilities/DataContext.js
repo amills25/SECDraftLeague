@@ -23,8 +23,18 @@ export const DataHelper = () => {
       },
     })
       .then(function (response) {
-        console.log(response);
-        const parsedData = response.data.map((d) => ({ ...d, points: 0 }));
+        // console.log(response);
+        // const parsedData = response.data.map((d) => ({ ...d, points: 0 }));
+        // setData(parsedData);
+        const parsedData = response.data.map((d) => {
+          console.log(d);
+          //   ...d,
+          //   const points = 0;
+          const points = d.lineup.weeks.reduce((a, c) => a.points + c.points, {
+            points: 0,
+          }).points;
+          return { ...d, points };
+        });
         setData(parsedData);
       })
       .catch((e) => console.log(e));

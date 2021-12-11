@@ -86,6 +86,7 @@ export default function Lineup(props) {
           </Col>
         </Row>
       </Container>
+      <br></br>
     </>
   );
 }
