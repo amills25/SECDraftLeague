@@ -4,7 +4,6 @@ import { useData } from "../Utilities/DataContext";
 
 export default function StandingsTable(props) {
   const { data, arrangeData } = useData();
-  console.log(data);
 
   return (
     <>
