@@ -43,7 +43,6 @@ export default function Roster(props) {
       },
     }).then(function (response) {
       setRoster(response.data);
-      console.log(response);
     });
   }, []);
 
@@ -123,7 +122,6 @@ export default function Roster(props) {
       },
     })
       .then((response) => {
-        console.log(response);
         getAllUsers();
       })
       .catch((error) => {

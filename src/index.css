@@ -40,6 +40,11 @@ body {
   color: rgb(1, 74, 142);
 }
 
+.form-control:disabled,
+.form-control[readonly] {
+  display: none;
+}
+
 @import url(//db.onlinewebfonts.com/c/51296ff9eb1e16185eb6a1000de5d345?family=Gotham);
 @font-face {
   font-family: "Gotham";
