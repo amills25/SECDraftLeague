@@ -6,7 +6,7 @@ export default function History() {
     <>
       <Container>
         <Row>
-          <h1 className="text-center">HALL OF FAME</h1>
+          <h1 className="text-center slogan">HALL OF FAME</h1>
           <hr></hr>
           <Col className="col-7 bg-white myBorder bdr myPad">
             <Table striped bordered hover responsive>

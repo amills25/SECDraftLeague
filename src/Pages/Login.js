@@ -48,7 +48,7 @@ export default function Login(props) {
       <Container className="text-center">
         <Row className="justify-content-center">
           <Col className="col-3 myContainer bg-white myBorder rounded">
-            <h1 className="text-center">LOGIN</h1>
+            <h1 className="text-center slogan">LOGIN</h1>
             <hr></hr>
             <Form onSubmit={getLogin}>
               <Form.Group className="mb-3" controlId="formBasicEmail">

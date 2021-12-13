@@ -105,7 +105,7 @@ export default function Home(props) {
         <br></br>
         <Row>
           <Col className="text-center">
-            <h3>CURRENT STANDINGS</h3>
+            <h3 className="slogan">CURRENT STANDINGS</h3>
             <StandingsTable />
             <br></br>
           </Col>

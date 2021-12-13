@@ -44,7 +44,7 @@ export default function MyNavbar(props) {
               props.userData.id ? `/lineup/${props.userData.id}` : `/lineup/1`
             }
           >
-            MY TEAM
+            LINEUP
           </Nav.Link>
           <Nav.Link
             className="fw-bold"

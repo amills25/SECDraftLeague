@@ -8,7 +8,7 @@ export default function Standings(props) {
       <Container className="text-center">
         <Row>
           <Col>
-            <h1 className="text-center">STANDINGS</h1>
+            <h1 className="text-center slogan">STANDINGS</h1>
             <hr></hr>
           </Col>
         </Row>

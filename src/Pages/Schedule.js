@@ -6,7 +6,7 @@ export default function Schedule() {
     <>
       <Container>
         <Row>
-          <h1 className="text-center">SCHEDULE</h1>
+          <h1 className="text-center slogan">SCHEDULE</h1>
           <hr></hr>
           <Col className="myBorder bdr bg-white">
             <Table responsive>
