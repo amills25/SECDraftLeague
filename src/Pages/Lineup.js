@@ -25,7 +25,7 @@ export default function Lineup(props) {
     <>
       <Container>
         <Row>
-          <h1 className="text-center">LINEUP</h1>
+          <h1 className="text-center slogan">LINEUP</h1>
           <hr></hr>
           <Col className="col-6">
             <Row>

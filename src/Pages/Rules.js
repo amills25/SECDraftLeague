@@ -7,7 +7,9 @@ export default function Rules() {
       <Container>
         <Row>
           <Col>
-            <h1 className="text-center">2021-2022 RULES AND REGULATIONS</h1>
+            <h1 className="text-center slogan">
+              2021-2022 RULES AND REGULATIONS
+            </h1>
             <hr></hr>
           </Col>
         </Row>

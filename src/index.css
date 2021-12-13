@@ -5,8 +5,8 @@ body,
 }
 
 body {
-  font-family: Gotham;
-  background-color: rgba(49, 93, 177, 0.2);
+  font-family: Gotham !important;
+  background-color: rgba(1, 74, 142, 0.2) !important;
 }
 
 #root {
@@ -19,7 +19,7 @@ body {
 }
 
 .myBorder {
-  border: 5px solid rgb(49, 93, 177) !important;
+  border: 5px solid rgb(1, 74, 142) !important;
 }
 
 .bdr {
@@ -37,7 +37,7 @@ body {
 
 .slogan {
   font-family: Brothers;
-  color: rgb(255, 212, 51);
+  color: rgb(1, 74, 142);
 }
 
 @import url(//db.onlinewebfonts.com/c/51296ff9eb1e16185eb6a1000de5d345?family=Gotham);
