@@ -47,7 +47,7 @@ export default function Login(props) {
     <>
       <Container className="text-center">
         <Row className="justify-content-center">
-          <Col className="col-3">
+          <Col className="col-3 myContainer bg-white myBorder rounded">
             <h1 className="text-center">LOGIN</h1>
             <hr></hr>
             <Form onSubmit={getLogin}>
@@ -60,6 +60,7 @@ export default function Login(props) {
                   name="email"
                   value={login.email || ""}
                   onChange={handleChange}
+                  className="bg-white"
                 />
               </Form.Group>
 
@@ -72,6 +73,7 @@ export default function Login(props) {
                   name="password"
                   value={login.password || ""}
                   onChange={handleChange}
+                  className="bg-white"
                 />
               </Form.Group>
               <Button variant="outline-dark" type="submit">

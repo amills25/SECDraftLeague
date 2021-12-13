@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Container, Row, Col, Image, Button } from "react-bootstrap";
+import StandingsTable from "../Components/StandingsTable";
 
 export default function Home(props) {
   const [blogPost, setBlogPost] = useState([]);
@@ -57,20 +58,22 @@ export default function Home(props) {
   return (
     <>
       <br></br>
-      <br></br>
       <Container>
         <Row>
           <Col className="col text-center">
-            <Image className="logo" src="../img/SECDraftLeagueLogo.png" fluid />
+            <Image
+              className="logo"
+              src="../img/SECDraftLeagueLogoTrans.png"
+              fluid
+            />
           </Col>
         </Row>
       </Container>
       <br></br>
-      <br></br>
       <Container>
         <Row>
           <Col className="col-2"></Col>
-          <Col className="col-8 text-center">
+          <Col className="col-8 text-center myBorder bdr bg-white myPad">
             {editing ? (
               <textarea
                 cols={100}
@@ -97,6 +100,15 @@ export default function Home(props) {
             )}
           </Col>
           <Col className="col-2"></Col>
+        </Row>
+        <br></br>
+        <br></br>
+        <Row>
+          <Col className="text-center">
+            <h3>CURRENT STANDINGS</h3>
+            <StandingsTable />
+            <br></br>
+          </Col>
         </Row>
       </Container>
       <br></br>

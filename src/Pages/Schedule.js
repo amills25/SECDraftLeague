@@ -8,7 +8,7 @@ export default function Schedule() {
         <Row>
           <h1 className="text-center">SCHEDULE</h1>
           <hr></hr>
-          <Col>
+          <Col className="myBorder bdr bg-white">
             <Table responsive>
               <thead>
                 <tr>
@@ -251,6 +251,7 @@ export default function Schedule() {
           </Col>
         </Row>
       </Container>
+      <br></br>
     </>
   );
 }
