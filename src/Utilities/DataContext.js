@@ -7,7 +7,24 @@ const DataContext = createContext({});
 export const DataHelper = () => {
   const [data, setData] = useState([]);
 
-  useEffect(() => {
+  const arrangeData = (d) => {
+    return d.sort((a, b) => (a.points > b.points ? -1 : 1));
+  };
+
+  const savePointData = (grandTotal, rosterID) => {
+    setData((prevData) => {
+      let newData = prevData.map((old) => {
+        let d = { ...old };
+        if (d.id === rosterID) {
+          d.points = grandTotal;
+        }
+        return d;
+      });
+      return newData;
+    });
+  };
+
+  const getAllUsers = () => {
     axios({
       method: "get",
       url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/allUsers",
@@ -29,48 +46,16 @@ export const DataHelper = () => {
         setData(parsedData);
       })
       .catch((e) => console.log(e));
-  }, []);
-
-  const arrangeData = (d) => {
-    return d.sort((a, b) => (a.points > b.points ? -1 : 1));
   };
 
-  const savePointData = (grandTotal, rosterID) => {
-    setData((prevData) => {
-      let newData = prevData.map((old) => {
-        let d = { ...old };
-        if (d.id === rosterID) {
-          d.points = grandTotal;
-        }
-        return d;
-      });
-      return newData;
-    });
-  };
-
-  useEffect(() => {
-    axios({
-      method: "get",
-      url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/allUsers",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
-        "Access-Control-Allow-Credentials": true,
-        //   Authorization: `Bearer ${token}`,
-      },
-    }).then(function (response) {
-      console.log(response);
-    });
-  }, []);
+  useEffect(getAllUsers, []);
 
   return {
     arrangeData,
     data,
     savePointData,
     setData,
+    getAllUsers,
   };
 };
 

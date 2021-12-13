@@ -72,12 +72,12 @@ export default function Home(props) {
       <br></br>
       <Container>
         <Row>
-          <Col className="col-2"></Col>
-          <Col className="col-8 text-center myBorder bdr bg-white myPad">
+          <Col className="col-1"></Col>
+          <Col className="col-10 text-center myBorder bdr bg-white myPad">
             {editing ? (
               <textarea
                 cols={100}
-                rows={10}
+                rows={25}
                 value={blogPost.join("\n\n")}
                 onChange={handleChange}
               />
@@ -99,7 +99,7 @@ export default function Home(props) {
               </Button>
             )}
           </Col>
-          <Col className="col-2"></Col>
+          <Col className="col-1"></Col>
         </Row>
         <br></br>
         <br></br>
@@ -107,7 +107,6 @@ export default function Home(props) {
           <Col className="text-center">
             <h3 className="slogan">CURRENT STANDINGS</h3>
             <StandingsTable />
-            <br></br>
           </Col>
         </Row>
       </Container>

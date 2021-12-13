@@ -9,7 +9,7 @@ export default function History() {
           <h1 className="text-center slogan">HALL OF FAME</h1>
           <hr></hr>
           <Col className="col-7 bg-white myBorder bdr myPad">
-            <Table striped bordered hover responsive>
+            <Table hover responsive>
               <thead>
                 <tr>
                   <th>Year</th>

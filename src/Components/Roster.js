@@ -16,7 +16,7 @@ import { useData } from "../Utilities/DataContext";
 const getRowId = (row) => row.id;
 
 export default function Roster(props) {
-  const { savePointData } = useData();
+  const { savePointData, getAllUsers } = useData();
 
   const [toggleState, setToggleState] = useState({});
   const saveToggleState = (athleteID) => {
@@ -124,6 +124,7 @@ export default function Roster(props) {
     })
       .then((response) => {
         console.log(response);
+        getAllUsers();
       })
       .catch((error) => {
         console.error(error);
