@@ -8,7 +8,7 @@ export default function History() {
         <Row>
           <h1 className="text-center">HALL OF FAME</h1>
           <hr></hr>
-          <Col className="col-8">
+          <Col className="col-7 bg-white myBorder bdr myPad">
             <Table striped bordered hover responsive>
               <thead>
                 <tr>
@@ -285,7 +285,8 @@ export default function History() {
               </tbody>
             </Table>
           </Col>
-          <Col className="myBorder col-4 border border-5 rounded-3 bg-white">
+          <Col className="col-1"></Col>
+          <Col className="myBorder bdr col-4 bg-white">
             <ListGroup variant="flush">
               <div className="text-center myPad">
                 <h4>
@@ -367,6 +368,7 @@ export default function History() {
           </Col>
         </Row>
       </Container>
+      <br></br>
     </>
   );
 }

@@ -4,6 +4,11 @@ body,
   height: 100%;
 }
 
+body {
+  font-family: Gotham;
+  background-color: rgba(49, 93, 177, 0.2);
+}
+
 #root {
   display: grid;
   grid-template-rows: auto 1fr auto;
@@ -14,9 +19,55 @@ body,
 }
 
 .myBorder {
-  border: 1px solid #315db1 !important;
+  border: 5px solid rgb(49, 93, 177) !important;
+}
+
+.bdr {
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .myPad {
   padding-top: 15px;
+}
+
+.myContainer {
+  padding-bottom: 10px;
+}
+
+.slogan {
+  font-family: Brothers;
+  color: rgb(255, 212, 51);
+}
+
+@import url(//db.onlinewebfonts.com/c/51296ff9eb1e16185eb6a1000de5d345?family=Gotham);
+@font-face {
+  font-family: "Gotham";
+  src: url("//db.onlinewebfonts.com/t/51296ff9eb1e16185eb6a1000de5d345.eot");
+  src: url("//db.onlinewebfonts.com/t/51296ff9eb1e16185eb6a1000de5d345.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/51296ff9eb1e16185eb6a1000de5d345.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/51296ff9eb1e16185eb6a1000de5d345.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/51296ff9eb1e16185eb6a1000de5d345.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/51296ff9eb1e16185eb6a1000de5d345.svg#Gotham")
+      format("svg");
+}
+
+@import url(//db.onlinewebfonts.com/c/879ffeee9410f56275d2385d440db117?family=Brothers);
+@font-face {
+  font-family: "Brothers";
+  src: url("//db.onlinewebfonts.com/t/879ffeee9410f56275d2385d440db117.eot");
+  src: url("//db.onlinewebfonts.com/t/879ffeee9410f56275d2385d440db117.eot?#iefix")
+      format("embedded-opentype"),
+    url("//db.onlinewebfonts.com/t/879ffeee9410f56275d2385d440db117.woff2")
+      format("woff2"),
+    url("//db.onlinewebfonts.com/t/879ffeee9410f56275d2385d440db117.woff")
+      format("woff"),
+    url("//db.onlinewebfonts.com/t/879ffeee9410f56275d2385d440db117.ttf")
+      format("truetype"),
+    url("//db.onlinewebfonts.com/t/879ffeee9410f56275d2385d440db117.svg#Brothers")
+      format("svg");
 }

@@ -25,7 +25,7 @@ export default function MyNavbar(props) {
       });
   };
   return (
-    <Navbar className="myNav">
+    <Navbar>
       <Container className="myBorder border-5 rounded-3 bg-white container-fluid">
         <Nav className="me-auto">
           <Nav.Link
@@ -34,7 +34,7 @@ export default function MyNavbar(props) {
             as={NavLink}
             to="/home"
           >
-            Home
+            HOME
           </Nav.Link>
           <Nav.Link
             className="fw-bold"
@@ -44,7 +44,7 @@ export default function MyNavbar(props) {
               props.userData.id ? `/lineup/${props.userData.id}` : `/lineup/1`
             }
           >
-            Lineup
+            MY TEAM
           </Nav.Link>
           <Nav.Link
             className="fw-bold"
@@ -52,7 +52,7 @@ export default function MyNavbar(props) {
             as={NavLink}
             to="/standings"
           >
-            Standings
+            STANDINGS
           </Nav.Link>
           <Nav.Link
             className="fw-bold"
@@ -60,7 +60,7 @@ export default function MyNavbar(props) {
             as={NavLink}
             to="/schedule"
           >
-            Schedule
+            SCHEDULE
           </Nav.Link>
           <Nav.Link
             className="fw-bold"
@@ -68,7 +68,7 @@ export default function MyNavbar(props) {
             as={NavLink}
             to="/history"
           >
-            Hall of Fame
+            HALL OF FAME
           </Nav.Link>
           <Nav.Link
             className="fw-bold"
@@ -76,7 +76,7 @@ export default function MyNavbar(props) {
             as={NavLink}
             to="/rules"
           >
-            Rules
+            RULES
           </Nav.Link>
         </Nav>
         <Navbar.Toggle />
@@ -84,11 +84,11 @@ export default function MyNavbar(props) {
           <Nav>
             {props.token.length > 0 ? (
               <Nav.Link as={Link} to="/home" onClick={logOut}>
-                Logout
+                LOGOUT
               </Nav.Link>
             ) : (
               <Nav.Link activeClassName={"active"} as={NavLink} to="/login">
-                Login
+                LOGIN
               </Nav.Link>
             )}
           </Nav>

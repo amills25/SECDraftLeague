@@ -10,7 +10,7 @@ export default function StandingsTable(props) {
     <>
       <Container>
         <Row className="justify-content-center">
-          <Col className="col-6">
+          <Col className="col-6 myBorder bdr bg-white myPad">
             <Table striped bordered hover responsive>
               <thead>
                 <tr>

@@ -257,7 +257,7 @@ export default function Roster(props) {
 
   return (
     <>
-      <div className="card">
+      <div className="card myBorder">
         <Grid rows={rows} columns={columns} getRowId={getRowId}>
           <EditingState
             editingRowIds={editingRowIds}

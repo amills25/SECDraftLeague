@@ -9,6 +9,10 @@ export default function Rules() {
           <Col>
             <h1 className="text-center">2021-2022 RULES AND REGULATIONS</h1>
             <hr></hr>
+          </Col>
+        </Row>
+        <Row>
+          <Col className="myBorder rounded bg-white myPad">
             <p>
               This letter is to inform you of details for the upcoming 2021-2022
               season player draft. This is the THIRTY NINTH year we have been
@@ -90,9 +94,9 @@ export default function Rules() {
             <h6>GOOD LUCK,</h6>
             <h6>THE COMMISIONER</h6>
             <br></br>
-            <br></br>
           </Col>
         </Row>
+        <br></br>
       </Container>
     </>
   );
