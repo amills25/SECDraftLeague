@@ -9,7 +9,7 @@ export default function Home(props) {
   useEffect(() => {
     axios({
       method: "get",
-      url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/blogpost",
+      url: "https://SECDraft-Laravel-mrslamdunk813305.codeanyapp.com/api/v1/blogpost",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -36,7 +36,7 @@ export default function Home(props) {
         axios({
           method: "post",
           url:
-            "https://Laravel-awmills25552543.codeanyapp.com/api/v1/blogpost/edit",
+            "https://SECDraft-Laravel-mrslamdunk813305.codeanyapp.com/api/v1/blogpost/edit",
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",

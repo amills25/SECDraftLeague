@@ -7,7 +7,7 @@ export default function MyNavbar(props) {
   const logOut = () => {
     axios({
       method: "get",
-      url: "https://laravel-awmills25552543.codeanyapp.com/api/v1/logout",
+      url: "https://SECDraft-Laravel-mrslamdunk813305.codeanyapp.com/api/v1/logout",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",

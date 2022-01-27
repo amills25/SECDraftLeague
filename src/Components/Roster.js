@@ -31,7 +31,7 @@ export default function Roster(props) {
   useEffect(() => {
     axios({
       method: "get",
-      url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/lineup",
+      url: "https://SECDraft-Laravel-mrslamdunk813305.codeanyapp.com/api/v1/lineup",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -106,7 +106,7 @@ export default function Roster(props) {
   const saveToDB = (data) => {
     axios({
       method: "post",
-      url: "https://Laravel-awmills25552543.codeanyapp.com/api/v1/lineup/edit",
+      url: "https://SECDraft-Laravel-mrslamdunk813305.codeanyapp.com/api/v1/lineup/edit",
       data: {
         rows: data,
         lineup_id: props.currentRoster,
