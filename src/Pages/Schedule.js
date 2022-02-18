@@ -235,7 +235,7 @@ export default function Schedule() {
                   <td> </td>
                 </tr>
                 <tr>
-                  <td>MSU/OM</td>
+                  <td>MSU/MO</td>
                   <td> </td>
                   <td> </td>
                   <td> </td>
