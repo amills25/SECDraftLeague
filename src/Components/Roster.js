@@ -91,7 +91,7 @@ export default function Roster(props) {
 
   const [rows, setRows] = useState([]);
 
-  // when we first generate the rows, we also generate the toogle state
+  // when we first generate the rows, we also generate the toggle state
   useEffect(() => {
     if (generatedRows.length > 0) {
       setRows(generatedRows);
@@ -246,6 +246,8 @@ export default function Roster(props) {
       for (let i = 0; i < newRows.length; i++) {
         for (let j = 0; j < newRows[i].wkData.length; j++) {
           newRows[i].wkData[j].points = newRows[i][`week${j + 1}`];
+        //   trying to get name to change without having to change points
+        //   newRows[i].wkData[j].athlete.name = newRows[i][`name`];
         }
       }
       saveToDB(newRows);
