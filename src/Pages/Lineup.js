@@ -15,6 +15,7 @@ export default function Lineup(props) {
     "Dylan Prezkop",
     "Clark Spencer",
     "Team Zimmer",
+    "Keith Downing",
   ];
 
   let currentRoster = parseInt(id);
@@ -50,6 +51,9 @@ export default function Lineup(props) {
                   </Dropdown.Item>
                   <Dropdown.Item as={Link} to="/lineup/3">
                     Joel Storrow
+                  </Dropdown.Item>
+                  <Dropdown.Item as={Link} to="/lineup/7">
+                    Keith Downing
                   </Dropdown.Item>
                   <Dropdown.Item as={Link} to="/lineup/1">
                     Mike Mills

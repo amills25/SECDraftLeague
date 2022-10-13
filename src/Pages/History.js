@@ -372,6 +372,7 @@ export default function History() {
               <ListGroup.Item>R. Storrow</ListGroup.Item>
               <ListGroup.Item>Collins</ListGroup.Item>
               <ListGroup.Item>Lambert</ListGroup.Item>
+              <ListGroup.Item>Downing</ListGroup.Item>
             </ListGroup>
           </Col>
         </Row>

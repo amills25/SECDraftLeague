@@ -70,6 +70,7 @@ function App() {
     { name: "Dylan Prezkop", points: 0 },
     { name: "Clark Spencer", points: 0 },
     { name: "Team Zimmer", points: 0 },
+    { name: "Keith Downing", points: 0 },
   ];
 
   const arrangeStandings = () => {
