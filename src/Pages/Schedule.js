@@ -18,64 +18,65 @@ export default function Schedule() {
                 </tr>
               </thead>
               <tbody>
+                {/* Sorted by row, not by week/column */}
                 <tr>
-                  <td>FL/OM</td>
-                  <td>SC/TN</td>
-                  <td>SC/ARK</td>
-                  <td>AL/GA</td>
-                  <td>TAM/TN</td>
-                  <td>LSU/TAM</td>
-                  <td>SC/OM</td>
-                  <td>TN/MO</td>
-                  <td>TB/GA</td>
-                  <td>SEC Tournament</td>
-                </tr>
-                <tr>
-                  <td>LSU/AUB</td>
-                  <td>KY/VDY</td>
-                  <td>MO/OM</td>
-                  <td>AUB/MO</td>
-                  <td>SC/MSU</td>
-                  <td>KY/SC</td>
-                  <td>FL/TAM</td>
-                  <td>GA/TAM</td>
-                  <td>MO/SC</td>
-                  <td>SEC Tournament</td>
-                </tr>
-                <tr>
-                  <td>MO/KY</td>
-                  <td>OM/TAM</td>
-                  <td>TN/VDY</td>
-                  <td>MSU/KY</td>
-                  <td>OM/LSU</td>
-                  <td>AUB/ARK</td>
-                  <td>KY/TN</td>
-                  <td>ARK/FL</td>
-                  <td>OM/KY</td>
-                  <td>SEC Tournament</td>
-                </tr>
-                <tr>
-                  <td>ARK/MSU</td>
-                  <td>AUB/AL</td>
-                  <td>MSU/FL</td>
-                  <td>FL/TN</td>
-                  <td>AL/AUB</td>
-                  <td>MO/VDY</td>
-                  <td>ARK/MO</td>
+                  <td>KY/MO</td>
+                  <td>FL/LSU</td>
                   <td>AL/VDY</td>
-                  <td>GA/FL</td>
+                  <td>MO/OM</td>
+                  <td>KY/OM</td>
+                  <td>OM/GA</td>
+                  <td>MO/AUB</td>
+                  <td>GA/ARK</td>
+                  <td>FL/GA</td>
                   <td>SEC Tournament</td>
                 </tr>
                 <tr>
-                  <td>TN/AL</td>
-                  <td>MO/ARK</td>
-                  <td>LSU/AL</td>
-                  <td>VDY/SC</td>
-                  <td>VDY/KY</td>
-                  <td>GA/FL</td>
-                  <td>GA/LSU</td>
+                  <td>FL/AUB</td>
+                  <td>SC/KY</td>
+                  <td>GA/KY</td>
+                  <td>KY/VDY</td>
+                  <td>VDY/AL</td>
+                  <td>ARK/KY</td>
+                  <td>LSU/GA</td>
+                  <td>MSU/MO</td>
+                  <td>TAM/OM</td>
+                  <td>SEC Tournament</td>
+                </tr>
+                <tr>
+                  <td>ARK/LSU</td>
+                  <td>AUB/OM</td>
+                  <td>OM/SC</td>
+                  <td>LSU/ARK</td>
                   <td>MSU/SC</td>
-                  <td>TAM/AL</td>
+                  <td>SC/MO</td>
+                  <td>VDY/SC</td>
+                  <td>TN/TAM</td>
+                  <td>SC/MSU</td>
+                  <td>SEC Tournament</td>
+                </tr>
+                <tr>
+                  <td>TN/OM</td>
+                  <td>VDY/TN</td>
+                  <td>TN/MSU</td>
+                  <td>GA/TN</td>
+                  <td>TAM/ARK</td>
+                  <td>AUB/TAM</td>
+                  <td>AL/TN</td>
+                  <td>KY/FL</td>
+                  <td>ARK/TN</td>
+                  <td>SEC Tournament</td>
+                </tr>
+                <tr>
+                  <td>AL/MSU</td>
+                  <td>AL/ARK</td>
+                  <td>ARK/MO</td>
+                  <td>SC/FL</td>
+                  <td>GA/AUB</td>
+                  <td>TN/VDY</td>
+                  <td>KY/MSU</td>
+                  <td>VDY/LSU</td>
+                  <td>AUB/AL</td>
                   <td>SEC Tournament</td>
                 </tr>
                 <tr>
