@@ -20,7 +20,7 @@ export default function Schedule() {
               <tbody>
                 {/* Sorted by row, not by week/column */}
                 <tr>
-                  <td>KY/MO</td>
+                  <td>TN/OM</td> 
                   <td>FL/LSU</td>
                   <td>AL/VDY</td>
                   <td>MO/OM</td>
@@ -44,7 +44,7 @@ export default function Schedule() {
                   <td>SEC Tournament</td>
                 </tr>
                 <tr>
-                  <td>ARK/LSU</td>
+                  <td>KY/MO</td>
                   <td>AUB/OM</td>
                   <td>OM/SC</td>
                   <td>LSU/ARK</td>
@@ -56,7 +56,7 @@ export default function Schedule() {
                   <td>SEC Tournament</td>
                 </tr>
                 <tr>
-                  <td>TN/OM</td>
+                  <td>ARK/LSU</td>
                   <td>VDY/TN</td>
                   <td>TN/MSU</td>
                   <td>GA/TN</td>
@@ -80,14 +80,14 @@ export default function Schedule() {
                   <td>SEC Tournament</td>
                 </tr>
                 <tr>
-                  <td>OM/AM</td>
+                  <td>SC/VDY</td>
                   <td>MSU/GA</td>
                   <td>FL/TAM</td>
                   <td>MSU/AL</td>
                   <td>LSU/MO</td>
                   <td>FL/AL</td>
                   <td>ARK/TAM</td>
-                  <td>OM/AUM</td>
+                  <td>OM/AUB</td>
                   <td>VDY/KY</td>
                   <td>SEC Tournament</td>
                 </tr>
@@ -104,7 +104,7 @@ export default function Schedule() {
                   <td>SEC Tournament</td>
                 </tr>
                 <tr>
-                  <td>SC/VDY</td>
+                  <td>LSU/KY</td>
                   <td>LSU/AL</td>
                   <td>OM/ARK</td>
                   <td>SC/GA</td>
@@ -116,7 +116,7 @@ export default function Schedule() {
                   <td>SEC Tournament</td>
                 </tr>
                 <tr>
-                  <td>LSU/KY</td>
+                  <td>OM/AL</td>
                   <td>TAM/SC</td>
                   <td>VDY/GA</td>
                   <td>VDY/TAM</td>
@@ -130,7 +130,7 @@ export default function Schedule() {
                 <tr>
                   <td>AUB/GA</td>
                   <td>ARK/VDY</td>
-                  <td>TAM/LY</td>
+                  <td>TAM/KY</td>
                   <td> </td>
                   <td>MO/MSU</td>
                   <td>MO/TN</td>
@@ -176,7 +176,7 @@ export default function Schedule() {
                   <td> </td>
                 </tr>
                 <tr>
-                  <td>ARK/TAM</td>
+                  <td>LSU/TAM</td>
                   <td>KY/TN</td>
                   <td>AUB/SC</td>
                   <td> </td>
@@ -188,7 +188,7 @@ export default function Schedule() {
                   <td> </td>
                 </tr>
                 <tr>
-                  <td>AL/MO</td>
+                  <td>KY/AL</td>
                   <td> </td>
                   <td> </td>
                   <td> </td>
@@ -200,7 +200,7 @@ export default function Schedule() {
                   <td> </td>
                 </tr>
                 <tr>
-                  <td>TN/LSU</td>
+                  <td>TN/SC</td>
                   <td> </td>
                   <td> </td>
                   <td> </td>
@@ -212,7 +212,7 @@ export default function Schedule() {
                   <td> </td>
                 </tr>
                 <tr>
-                  <td>GA/KY</td>
+                  <td>GA/FL</td>
                   <td> </td>
                   <td> </td>
                   <td> </td>
@@ -224,7 +224,7 @@ export default function Schedule() {
                   <td> </td>
                 </tr>
                 <tr>
-                  <td>FL/AUB</td>
+                  <td>ARK/AUB</td>
                   <td> </td>
                   <td> </td>
                   <td> </td>
@@ -236,7 +236,7 @@ export default function Schedule() {
                   <td> </td>
                 </tr>
                 <tr>
-                  <td>MSU/MO</td>
+                  <td>OM/MSU</td>
                   <td> </td>
                   <td> </td>
                   <td> </td>
