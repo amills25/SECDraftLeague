@@ -21,6 +21,9 @@ export default function Lineup(props) {
 
   const team = data.find((d) => d.id === currentRoster);
 
+  // TODO: SQL Query to clear rosters in PHPMyAdmin --> UPDATE `athletes` SET `active`=FALSE,`name`='',`team`=''
+  // TODO: SQL Query to clear points in PHPMyAdmin --> UPDATE `weeks` SET `points`='0'
+
   return (
     <>
       <Container>

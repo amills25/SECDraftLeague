@@ -16,15 +16,15 @@ export default function Rules() {
         <Row>
           <Col className="myBorder rounded bg-white myPad">
             <p>
-            This letter is to inform you of details for the upcoming 2022-2023 
-            season player draft. This is the FORTIETH (40th) year we have been 
-            conducting this draft. For those of us that have been around from the 
-            beginning, did we really think we would last this long? This is either 
-            a lot of fun or we lead very boring lives. We will conduct a poll on 
-            that issue on draft day. We should have six participants this year. 
-            If you intend to participate in the league this year, please e-mail 
-            or call the commissioner as soon as you read this letter and confirm 
-            your attendance at the draft.
+              This letter is to inform you of details for the upcoming 2023-2024
+              season player draft. This is the FORTY-FIRST (41st) year we have
+              been conducting this draft. For those of us that have been around
+              from the beginning, did we really think we would last this long?
+              This is either a lot of fun or we lead very boring lives. We will
+              conduct a poll on that issue on draft day. We should have six
+              participants this year. If you intend to participate in the league
+              this year, please e-mail or call the commissioner as soon as you
+              read this letter and confirm your attendance at the draft.
             </p>
             <p>
               Elsewhere on this website you will find your copy of the schedule
@@ -39,18 +39,19 @@ export default function Rules() {
               players.
             </p>
             <p>
-            If there is no conflict with Sunday, November 6, 2022 the draft will 
-            be held on this date at the hour of 7:00 pm ET. The league will be 
-            conducting the draft electronically through group text messages or 
-            email.  There will be nine rounds of drafting with each participant 
-            being given one minute to make their selections each round.  The draft 
-            order of the ninth round will be the same order as the first round.  
-            As you can see you should be prepared to pick quickly. If you have 
-            not made your pick within the time limit it will count as a pass. A 
-            lottery will be held to determine the order of draft. The Commissioner 
-            will release the draft order immediately before the draft. Any player 
-            that is hurt or becomes academically ineligible is lost and cannot be 
-            replaced on the roster except in accordance with the rules herein stated.  
+              If there is no conflict with Sunday, November 5, 2023 the draft
+              will be held on this date at the hour of 7:00 pm ET. The league
+              will be conducting the draft electronically through group text
+              messages or email. There will be nine rounds of drafting with each
+              participant being given one minute to make their selections each
+              round. The draft order of the ninth round will be the same order
+              as the first round. As you can see you should be prepared to pick
+              quickly. If you have not made your pick within the time limit it
+              will count as a pass. A lottery will be held to determine the
+              order of draft. The Commissioner will release the draft order
+              immediately before the draft. Any player that is hurt or becomes
+              academically ineligible is lost and cannot be replaced on the
+              roster except in accordance with the rules herein stated.
             </p>
             <p>
               Here is a quick review of the rules of the league. Each week of
