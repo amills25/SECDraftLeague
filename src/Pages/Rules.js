@@ -8,7 +8,7 @@ export default function Rules() {
         <Row>
           <Col>
             <h1 className="text-center slogan">
-              2022-2023 RULES AND REGULATIONS
+              2023-2024 RULES AND REGULATIONS
             </h1>
             <hr></hr>
           </Col>
