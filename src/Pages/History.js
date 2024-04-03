@@ -19,6 +19,13 @@ export default function History() {
               </thead>
               <tbody>
                 <tr>
+                  <td>2023-2024</td>
+                  <td>M. Mills</td>
+                  <td>2051</td>
+                </tr>
+              </tbody>
+              <tbody>
+                <tr>
                   <td>2022-2023</td>
                   <td>M. Mills</td>
                   <td>1862</td>
@@ -325,10 +332,10 @@ export default function History() {
                 <Image className="logo" src="../img/trophy.png" fluid />{" "}
                 <Image className="logo" src="../img/trophy.png" fluid />{" "}
                 <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                <Image className="logo" src="../img/trophy.png" fluid />{" "}
               </ListGroup.Item>
               <ListGroup.Item>
-                Spencer{" "}
-                <Image className="logo" src="../img/trophy.png" fluid />{" "}
+                Spencer <Image className="logo" src="../img/trophy.png" fluid />{" "}
                 <Image className="logo" src="../img/trophy.png" fluid />{" "}
                 <Image className="logo" src="../img/trophy.png" fluid />{" "}
                 <Image className="logo" src="../img/trophy.png" fluid />{" "}
