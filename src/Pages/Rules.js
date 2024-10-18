@@ -8,7 +8,7 @@ export default function Rules() {
         <Row>
           <Col>
             <h1 className="text-center slogan">
-              2023-2024 RULES AND REGULATIONS
+              2024-2025 RULES AND REGULATIONS
             </h1>
             <hr></hr>
           </Col>
@@ -16,15 +16,15 @@ export default function Rules() {
         <Row>
           <Col className="myBorder rounded bg-white myPad">
             <p>
-              This letter is to inform you of details for the upcoming 2023-2024
-              season player draft. This is the FORTY-FIRST (41st) year we have
+              This letter is to inform you of details for the upcoming 2024-2025
+              season player draft. This is the FORTY-SECOND (42ND) year we have
               been conducting this draft. For those of us that have been around
               from the beginning, did we really think we would last this long?
-              This is either a lot of fun or we lead very boring lives. We will
-              conduct a poll on that issue on draft day. We should have six
-              participants this year. If you intend to participate in the league
-              this year, please e-mail or call the commissioner as soon as you
-              read this letter and confirm your attendance at the draft.
+              This is proof that traditon trumps Glitz and Glamour anyday. We
+              should have six participants this year. If you intend to
+              participate in the league this year, please e-mail or call the
+              commissioner as soon as you read this letter and confirm your
+              attendance at the draft.
             </p>
             <p>
               Elsewhere on this website you will find your copy of the schedule
@@ -39,7 +39,7 @@ export default function Rules() {
               players.
             </p>
             <p>
-              If there is no conflict with Sunday, November 5, 2023 the draft
+              If there is no conflict with Sunday, November 3, 2024 the draft
               will be held on this date at the hour of 7:00 pm ET. The league
               will be conducting the draft electronically through group text
               messages or email. There will be nine rounds of drafting with each
