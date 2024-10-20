@@ -50,21 +50,22 @@ export default function Roster(props) {
     { name: "active", title: "Active" },
     { name: "name", title: "Name" },
     { name: "team", title: "Team" },
-    { name: "week1", title: "Week1" },
-    { name: "week2", title: "Week2" },
-    { name: "week3", title: "Week3" },
-    { name: "week4", title: "Week4" },
-    { name: "week5", title: "Week5" },
-    { name: "week6", title: "Week6" },
-    { name: "week7", title: "Week7" },
-    { name: "week8", title: "Week8" },
-    { name: "week9", title: "Week9" },
-    { name: "week10", title: "SECT" },
+    { name: "week1", title: "Wk1" },
+    { name: "week2", title: "Wk2" },
+    { name: "week3", title: "Wk3" },
+    { name: "week4", title: "Wk4" },
+    { name: "week5", title: "Wk5" },
+    { name: "week6", title: "Wk6" },
+    { name: "week7", title: "Wk7" },
+    { name: "week8", title: "Wk8" },
+    { name: "week9", title: "Wk9" },
+    { name: "week10", title: "Wk10" },
+    { name: "week11", title: "SECT" },
     { name: "total", title: "Total" },
   ]);
 
   let weekNum = 0;
-  for (let index = 0; index < 100; index++) {
+  for (let index = 0; index < 110; index++) {
     weekNum = (index % 10) + 1;
   }
   const generatedRows = useMemo(() => {
@@ -178,6 +179,7 @@ export default function Roster(props) {
     { columnName: "week8", width: "auto" },
     { columnName: "week9", width: "auto" },
     { columnName: "week10", width: "auto" },
+    { columnName: "week11", width: "auto" },
     { columnName: "total", width: "5%" },
   ]);
   const [editingRowIds, setEditingRowIds] = useState([]);
@@ -246,8 +248,8 @@ export default function Roster(props) {
       for (let i = 0; i < newRows.length; i++) {
         for (let j = 0; j < newRows[i].wkData.length; j++) {
           newRows[i].wkData[j].points = newRows[i][`week${j + 1}`];
-        //   trying to get name to change without having to change points
-        //   newRows[i].wkData[j].athlete.name = newRows[i][`name`];
+          //   trying to get name to change without having to change points
+          //   newRows[i].wkData[j].athlete.name = newRows[i][`name`];
         }
       }
       saveToDB(newRows);

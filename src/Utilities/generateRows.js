@@ -20,7 +20,7 @@ export const generateRows = ({ rosterData, currentRoster, component }) => {
     obj["toggled"] = athleteData[i].athlete.active;
     obj["wkData"] = athleteData;
 
-    for (let n = 1; n <= 10; n++) {
+    for (let n = 1; n <= 11; n++) {
       obj[`week${n}`] = athleteData[n - 1]?.points;
     }
 
