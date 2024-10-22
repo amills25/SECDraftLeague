@@ -35,8 +35,7 @@ export default function Home(props) {
       if (!prevEdit === false) {
         axios({
           method: "post",
-          url:
-            "https://SECDraft-Laravel-mrslamdunk813305.codeanyapp.com/api/v1/blogpost/edit",
+          url: "https://SECDraft-Laravel-mrslamdunk813305.codeanyapp.com/api/v1/blogpost/edit",
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json",
@@ -63,7 +62,7 @@ export default function Home(props) {
           <Col className="col text-center">
             <Image
               className="logo"
-              src="../img/SECDraftLeagueLogoTrans.png"
+              src="../img/SECDraftLeagueLogoTransNew.png"
               fluid
             />
           </Col>
