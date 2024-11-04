@@ -67,7 +67,7 @@ function App() {
     { name: "Mike Mills", points: 0 },
     { name: "Andrew Mills", points: 0 },
     { name: "Joel Storrow", points: 0 },
-    { name: "Dylan Prezkop", points: 0 },
+    // { name: "Dylan Prezkop", points: 0 },
     { name: "Clark Spencer", points: 0 },
     { name: "Team Zimmer", points: 0 },
   ];

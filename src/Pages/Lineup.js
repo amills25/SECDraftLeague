@@ -12,7 +12,7 @@ export default function Lineup(props) {
     "Mike Mills",
     "Andrew Mills",
     "Joel Storrow",
-    "Dylan Prezkop",
+    // "Dylan Prezkop",
     "Clark Spencer",
     "Team Zimmer",
   ];
@@ -48,9 +48,9 @@ export default function Lineup(props) {
                   <Dropdown.Item as={Link} to="/lineup/5">
                     Clark Spencer
                   </Dropdown.Item>
-                  <Dropdown.Item as={Link} to="/lineup/4">
+                  {/* <Dropdown.Item as={Link} to="/lineup/4">
                     Dylan Prezkop
-                  </Dropdown.Item>
+                  </Dropdown.Item> */}
                   <Dropdown.Item as={Link} to="/lineup/3">
                     Joel Storrow
                   </Dropdown.Item>
