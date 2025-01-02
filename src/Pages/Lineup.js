@@ -9,12 +9,12 @@ export default function Lineup(props) {
 
   const { id } = useParams();
   let members = [
-    "Mike Mills",
-    "Andrew Mills",
-    "Joel Storrow",
-    // "Dylan Prezkop",
-    "Clark Spencer",
-    "Team Zimmer",
+    { id: 1, name: "Mike Mills" },
+    { id: 2, name: "Andrew Mills" },
+    { id: 3, name: "Joel Storrow" },
+    // { id: 4, name: "Dylan Prezkop" },
+    { id: 5, name: "Clark Spencer" },
+    { id: 6, name: "Team Zimmer" },
   ];
 
   let currentRoster = parseInt(id);
@@ -33,33 +33,20 @@ export default function Lineup(props) {
           <Col className="col-6">
             <Row>
               <Dropdown>
-                <Dropdown.Toggle
-                  variant="light btn-lg"
-                  id="dropdown-basic"
-                  value={members[currentRoster]}
-                >
-                  {members[currentRoster - 1]}
+                <Dropdown.Toggle variant="light btn-lg" id="dropdown-basic">
+                  {members.find((member) => member.id === currentRoster)?.name}
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  <Dropdown.Item as={Link} to="/lineup/2">
-                    Andrew Mills
-                  </Dropdown.Item>
-                  <Dropdown.Item as={Link} to="/lineup/5">
-                    Clark Spencer
-                  </Dropdown.Item>
-                  {/* <Dropdown.Item as={Link} to="/lineup/4">
-                    Dylan Prezkop
-                  </Dropdown.Item> */}
-                  <Dropdown.Item as={Link} to="/lineup/3">
-                    Joel Storrow
-                  </Dropdown.Item>
-                  <Dropdown.Item as={Link} to="/lineup/1">
-                    Mike Mills
-                  </Dropdown.Item>
-                  <Dropdown.Item as={Link} to="/lineup/6">
-                    Team Zimmer
-                  </Dropdown.Item>
+                  {members.map((member) => (
+                    <Dropdown.Item
+                      key={member.id}
+                      as={Link}
+                      to={`/lineup/${member.id}`}
+                    >
+                      {member.name}
+                    </Dropdown.Item>
+                  ))}
                 </Dropdown.Menu>
               </Dropdown>
             </Row>
